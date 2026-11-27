@@ -1,25 +1,30 @@
 """Exp 3 (P0-3B): Cross-Implementation Stroke-Spacing Counterfactual across all 14 frozen R7 windows.
 
 Uses the EXACT unmodified R7 matching engine (matching.match_layer, matching.metrics) and
-read-only chan.py-main library to quantify how much of the B (30.31%) and S_loc (8.00%)
-cross-implementation divergence is caused by minimum normalized-K center separation (2 vs 4)
+read-only chan.py-main library to quantify how much of the B (30.31%) and S* (8.00%)
+cross-implementation divergence is caused by minimum normalized-K center separation (m_B=2 vs 4)
 versus additional chan.py fractal-overlap / peak guards and segment lifecycle rules.
 """
 from __future__ import annotations
 import copy
 import json
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 import numpy as np
 
-R7_ROOT = Path(r"./external_r7")
-R7_RUN = R7_ROOT / "formal-run" / "R7-FORMAL-14-20261009T095213Z"
-CHANPY_ROOT = Path(r"./chan.py-main")
-OUT_DIR = Path(r"./results")
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent
+ADAPTER_DIR = Path(os.environ.get("CT_R7_ADAPTER_DIR", str(SCRIPT_DIR / "r7_adapter")))
+CHANPY_ROOT = Path(os.environ.get("CT_CHANPY_ROOT", "./chan.py-main"))
+WINDOWS_DIR = Path(os.environ.get("CT_WINDOWS_DIR", "./local_windows"))
+MANIFEST_PATH = Path(os.environ.get("CT_MANIFEST_PATH", str(REPO_ROOT / "data" / "window_manifest.json")))
+OUT_DIR = Path(os.environ.get("CT_RESULTS_DIR", "./results"))
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 sys.dont_write_bytecode = True
-sys.path.insert(0, str(R7_ROOT / "adapter"))
+sys.path.insert(0, str(ADAPTER_DIR))
 sys.path.insert(0, str(CHANPY_ROOT))
 
 import matching  # noqa: E402
@@ -29,7 +34,11 @@ from Common.CEnum import AUTYPE, KL_TYPE, DATA_FIELD  # noqa: E402
 from Common.CTime import CTime  # noqa: E402
 from KLine.KLine_Unit import CKLine_Unit  # noqa: E402
 
-BASE_CHANPY_CFG = json.loads((R7_ROOT / "R7_SEMANTIC_MAPPING.json").read_text(encoding="utf-8"))["externalBaseline"]["proposedConfiguration"]
+MAPPING_PATH = ADAPTER_DIR / "r7_semantic_mapping.json"
+if not MAPPING_PATH.exists():
+    MAPPING_PATH = ADAPTER_DIR / "R7_SEMANTIC_MAPPING.json"
+R7_MAPPING = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
+BASE_CHANPY_CFG = R7_MAPPING["externalBaseline"]["proposedConfiguration"]
 
 
 def run_chanpy_window(wid: str, instrument: str, bars: list[dict], cfg_overrides: dict) -> dict[str, list[dict]]:
@@ -152,16 +161,16 @@ def aggregate_scenario(name: str, windows: list[dict], internal_by_win: dict, ex
 
 
 def main():
-    plan = json.loads((R7_ROOT / "formal" / "R7_FORMAL_RUN_PLAN.json").read_text(encoding="utf-8"))
-    windows = plan["windows"]
+    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    windows = [{"datasetId": w["windowId"], "instrument": w["instrument"]} for w in manifest["windows"]]
     internal_all = json.loads((OUT_DIR / "exp3_internal_projections.json").read_text(encoding="utf-8"))
-    frozen_r7 = json.loads((R7_RUN / "R7_FORMAL_RESULT_SUMMARY.json").read_text(encoding="utf-8"))
+    frozen_r7_layers = R7_MAPPING["frozenR7ReferenceSummary"]
 
     # Load frozen 14 window inputs
     bars_by_win = {}
     for w in windows:
         wid = w["datasetId"]
-        bars_by_win[wid] = json.loads((R7_RUN / "inputs" / f"{wid}.json").read_text(encoding="utf-8"))["bars"]
+        bars_by_win[wid] = json.loads((WINDOWS_DIR / f"{wid}.json").read_text(encoding="utf-8"))["bars"]
 
     # Run chan.py under 3 configurations (read-only library!)
     ext_configs = {
@@ -192,11 +201,11 @@ def main():
             s = res["layers"][l]
             print(f"  {l}: nI={s['internalCount']:4d}, nE={s['externalCount']:4d}, matched={s['uniqueMatchedCount']:4d}, uniqueCov={s['microUniqueCoverage']*100:6.2f}%, exactCov={s['microExactCoverage']*100:6.2f}%, macroMed={s['macroWindowMedian']*100:6.2f}%")
 
-    # Verify baseline matches frozen R7_FORMAL_RESULT_SUMMARY.json!
+    # Verify baseline matches published Table 10 R7 summary
     print("\n=== Baseline Verification vs Frozen R7 Summary ===")
     verify = {}
     for l in "KFBS":
-        f_micro = frozen_r7["aggregate"]["layers"][l]["micro"]
+        f_micro = frozen_r7_layers[l]
         b_micro = results["R7_BASELINE_m2_vs_strict"]["layers"][l]
         diff_ni = b_micro["internalCount"] - f_micro["internalEligibleCount"]
         diff_ne = b_micro["externalCount"] - f_micro["externalEligibleCount"]

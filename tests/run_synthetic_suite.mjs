@@ -198,8 +198,8 @@ function runSuite() {
   const sm4 = pm4.getConfirmedStructures();
   assert.equal(s1.normalizedK.length, sm4.normalizedK.length, 'K should be invariant to stroke spacing');
   assert.equal(s1.fractals.length, sm4.fractals.length, 'F should be invariant to stroke spacing');
-  assert.ok(sm4.strokes.length < s1.strokes.length, 'm=4 should produce strictly fewer strokes than m=2');
-  console.log(`[PASS] 5. Microscopic spacing sensitivity verified (K/F invariant; Strokes m=2: ${s1.strokes.length} -> m=4: ${sm4.strokes.length})`);
+  assert.ok(sm4.strokes.length < s1.strokes.length, 'm_B=4 should produce strictly fewer strokes than m_B=2');
+  console.log(`[PASS] 5. Microscopic spacing sensitivity verified (K/F invariant; Strokes m_B=2: ${s1.strokes.length} -> m_B=4: ${sm4.strokes.length})`);
 
   // Test 6: Audit-hooks-off bit-for-bit structural equivalence
   const pf = new coreFast.CTCoreParser(cfg);

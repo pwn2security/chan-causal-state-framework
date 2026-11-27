@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "CT-R7-Semantic-Mapping-Public-v1.0",
+  "scientificObjective": "cross-implementation agreement and explanatory structural correspondence; neither implementation is ground truth",
+  "internalBaseline": {
+    "parser": "CT-Core-Parser-R1.0.4",
+    "snapshot": "CT-StateSnapshot-v5.0",
+    "comparator": "CT-Core-Semantic-Comparator-v1.0",
+    "structuralTime": "CT-Structural-Time-v1.0",
+    "frozenWindowCount": 14,
+    "variant": "A",
+    "endpointRuleId": "CT-Endpoint-R5-A-ProductionExtreme-v1.0",
+    "minimumStrokeSeparation": 2,
+    "minimumSegmentStrokeCount": 3,
+    "priceTolerance": 0,
+    "numericTolerance": 1e-10
+  },
+  "externalBaseline": {
+    "repositoryIdentity": "Vespa314/chan.py",
+    "repositoryUrl": "https://github.com/Vespa314/chan.py",
+    "candidateCommit": "429d6ed3043e27c93a003ba2b10e70a05575e1f5",
+    "proposedConfiguration": {
+      "trigger_step": true,
+      "skip_step": 0,
+      "kl_data_check": true,
+      "auto_skip_illegal_sub_lv": false,
+      "bi_algo": "normal",
+      "bi_strict": true,
+      "bi_fx_check": "strict",
+      "gap_as_kl": false,
+      "bi_end_is_peak": true,
+      "bi_allow_sub_peak": true,
+      "seg_algo": "chan",
+      "left_seg_method": "peak",
+      "zs_combine": true,
+      "zs_combine_mode": "zs",
+      "one_bi_zs": false,
+      "zs_algo": "normal"
+    },
+    "publicConstructorArguments": {
+      "lv_list": ["KL_TYPE.K_1M"],
+      "autype": "AUTYPE.NONE"
+    },
+    "configurationNote": "Documented chan.py defaults with trigger_step=True for public incremental bar loading; deep-copied prior to CChanConfig because ConfigWithCheck mutates its input dict."
+  },
+  "frozenR7ReferenceSummary": {
+    "description": "Published 14-window R7 baseline eligible counts and micro unique correspondence (Table 10 of the main article).",
+    "K": { "internalEligibleCount": 6759, "externalEligibleCount": 6775, "uniqueCorrespondenceCoverage": 0.998670 },
+    "F": { "internalEligibleCount": 3055, "externalEligibleCount": 3064, "uniqueCorrespondenceCoverage": 0.998529 },
+    "B": { "internalEligibleCount": 1161, "externalEligibleCount": 502,  "uniqueCorrespondenceCoverage": 0.303067 },
+    "S": { "internalEligibleCount": 47,   "externalEligibleCount": 53,   "uniqueCorrespondenceCoverage": 0.080000 }
+  },
+  "selectionPolicy": {
+    "K": "all finalized normalizedK / CKLine at window end",
+    "F": "internal sealed confirmed F versus external CKLine.fx in {TOP, BOTTOM}",
+    "B": "internal sealed strokes versus external CBi with is_sure=True (virtual/unsure excluded)",
+    "S": "internal sealed confirmed Segments versus external CSeg with is_sure=True (partial geometry only; lifecycle NOT_COMPARABLE)",
+    "Z": "excluded from direct cross-implementation matching due to incompatible Pivot/Zhongshu lifecycle semantics"
+  },
+  "matchingDesign": {
+    "oneToOne": true,
+    "orderDependentGreedyForbidden": true,
+    "objective": "On each bipartite connected component: maximize cardinality, then maximize exact common-anchor pairs, then minimize sum of absolute anchor displacements. Accept only pairs forced across all optimal assignments."
+  }
+}

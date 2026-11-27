@@ -8,14 +8,15 @@ from __future__ import annotations
 import csv
 import json
 import math
+import os
 from collections import defaultdict
 from pathlib import Path
 import numpy as np
 from scipy import stats
 
-P0_DIR = Path(r"./four_clock_replay")
-R7_INPUTS = Path(r"./external_r7\formal-run\R7-FORMAL-14-20261009T095213Z\inputs")
-OUT_DIR = Path(r"./results")
+P0_DIR = Path(os.environ.get("CT_FOUR_CLOCK_DIR", "./four_clock_replay"))
+R7_INPUTS = Path(os.environ.get("CT_WINDOWS_DIR", "./local_windows"))
+OUT_DIR = Path(os.environ.get("CT_RESULTS_DIR", "./results"))
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 HORIZONS = [5, 15, 30, 60]
@@ -33,7 +34,7 @@ def load_direction_map():
     for slot in range(1, 6):
         sdir = P0_DIR / f"slot-{slot}"
         res = json.loads((sdir / "result.json").read_text(encoding="utf-8"))
-        wid = res.get("windowId") or res.get("datasetId") or res.get("window_id")
+        wid = res.get("windowId") or res.get("id") or res.get("datasetId") or res.get("window_id")
         sealed = json.loads((sdir / "final-sealed.json").read_text(encoding="utf-8"))
         # Inspect keys
         for layer_key, layer_code in [("strokes", "B"), ("segments", "S"), ("pivots", "Z")]:

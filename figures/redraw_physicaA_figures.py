@@ -30,9 +30,10 @@ import shutil
 import sys
 from pathlib import Path
 
-OUT_ROOT = Path(r"./physicaA\figures")
+MANUSCRIPT_DIR = Path(os.environ.get("CT_MANUSCRIPT_DIR", "./physicaA"))
+OUT_ROOT = MANUSCRIPT_DIR / "figures"
 PREVIEWS = OUT_ROOT / "previews"
-MPL_CACHE = OUT_ROOT.parent / "scripts" / "mpl-cache"
+MPL_CACHE = MANUSCRIPT_DIR / "scripts" / "mpl-cache"
 MPL_CACHE.mkdir(parents=True, exist_ok=True)
 os.environ["MPLCONFIGDIR"] = str(MPL_CACHE)
 
@@ -51,15 +52,16 @@ from matplotlib.ticker import FixedLocator, FuncFormatter, NullLocator, ScalarFo
 # ---------------------------------------------------------------------------
 # Frozen input paths (strictly read-only)
 # ---------------------------------------------------------------------------
-WB = Path(r"./local_archive")
+WB = Path(os.environ.get("CT_ARCHIVE_DIR", "./local_archive"))
 RV = WB / "research_validation_v2"
-E4 = WB / "player/experiments/core-paper/formal-results/FORMAL-E4-R1-20260916T125904Z/e4-reconstruction/figure-data"
+E4 = WB / "player" / "experiments" / "core-paper" / "formal-results" / "FORMAL-E4-R1-20260916T125904Z" / "e4-reconstruction" / "figure-data"
 R4 = RV / "formal-results-r4-cross-underlying"
-H_REF = WB / "review_v12_extensions/manuscript-figure-refinement"
-R7_DATA = Path(r"./external_r7\formal-run\R7-FORMAL-14-20261009T095213Z\figures\source-data\R7-C.json")
-FOUR_CLOCK = Path(r"./four_clock_replay\sz_four_clock_table.json")
-FIG1_SRC = Path(r"./figures/Figure1.pdf")
-EXP2_ABLATION = Path(r"./physicaA\experiments\results\exp2_hashing_ablation.json")
+H_REF = WB / "review_v12_extensions" / "manuscript-figure-refinement"
+R7_ROOT = Path(os.environ.get("CT_R7_ROOT", "./external_r7"))
+R7_DATA = R7_ROOT / "formal-run" / "R7-FORMAL-14-20261009T095213Z" / "figures" / "source-data" / "R7-C.json"
+FOUR_CLOCK = Path(os.environ.get("CT_FOUR_CLOCK_DIR", "./four_clock_replay")) / "sz_four_clock_table.json"
+FIG1_SRC = Path(os.environ.get("CT_FIG1_SRC", "./figures/Figure1.pdf"))
+EXP2_ABLATION = Path(os.environ.get("CT_RESULTS_DIR", str(MANUSCRIPT_DIR / "experiments" / "results"))) / "exp2_hashing_ablation.json"
 
 INPUTS = {
     "fig2": E4 / "full-BTCUSDT-2025-01-02-1s-derived-720.json",

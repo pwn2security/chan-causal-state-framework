@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this parser prototype, rule contracts, or validation scripts, please cite the accompanying article."
 type: software
 title: "A Hierarchical Hybrid State-Space Framework for Financial Market Structure Analysis Based on Chan Theory (Companion Code & Verification Suite)"
-version: "1.0.5"
+version: "1.0.6"
 date-released: "2026-11-27"
 license: MIT
 doi: "10.5281/zenodo.24580630"

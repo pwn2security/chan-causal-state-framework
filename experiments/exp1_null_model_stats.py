@@ -5,12 +5,13 @@ Computes pooled & per-window Monte Carlo quantiles, paired Wilcoxon signed-rank 
 """
 from __future__ import annotations
 import json
+import os
 from collections import defaultdict
 from pathlib import Path
 import numpy as np
 from scipy import stats
 
-OUT_DIR = Path(r"./results")
+OUT_DIR = Path(os.environ.get("CT_RESULTS_DIR", "./results"))
 RAW_PATH = OUT_DIR / "exp1_null_model_raw.json"
 
 METRICS = [

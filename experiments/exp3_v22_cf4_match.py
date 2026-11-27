@@ -1,6 +1,6 @@
 """Exp 3 v22 CF-4 Matcher (Major 4C):
-Evaluates CF-4 (Internal m=4 + Variant B [G_extreme disabled] vs frozen chan.py strict)
-and CF-4b (Internal m=2 + Variant B vs frozen chan.py strict) using the EXACT unmodified R7
+Evaluates CF-4 (Internal m_B=4 + Variant B [G_extreme disabled] vs frozen chan.py strict)
+and CF-4b (Internal m_B=2 + Variant B vs frozen chan.py strict) using the EXACT unmodified R7
 matching engine (matching.match_layer, matching.metrics).
 """
 from __future__ import annotations
@@ -12,13 +12,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 import numpy as np
 
-R7_ROOT = Path(os.environ.get("CT_R7_ROOT", "./external_r7"))
-R7_RUN = R7_ROOT / "formal-run" / "R7-FORMAL-14-20261009T095213Z"
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent
+ADAPTER_DIR = Path(os.environ.get("CT_R7_ADAPTER_DIR", str(SCRIPT_DIR / "r7_adapter")))
 CHANPY_ROOT = Path(os.environ.get("CT_CHANPY_ROOT", "./chan.py-main"))
+WINDOWS_DIR = Path(os.environ.get("CT_WINDOWS_DIR", "./local_windows"))
+MANIFEST_PATH = Path(os.environ.get("CT_MANIFEST_PATH", str(REPO_ROOT / "data" / "window_manifest.json")))
 OUT_DIR = Path(os.environ.get("CT_RESULTS_DIR", "./results"))
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 sys.dont_write_bytecode = True
-sys.path.insert(0, str(R7_ROOT / "adapter"))
+sys.path.insert(0, str(ADAPTER_DIR))
 sys.path.insert(0, str(CHANPY_ROOT))
 
 import matching  # noqa: E402
@@ -28,7 +32,10 @@ from Common.CEnum import AUTYPE, KL_TYPE, DATA_FIELD  # noqa: E402
 from Common.CTime import CTime  # noqa: E402
 from KLine.KLine_Unit import CKLine_Unit  # noqa: E402
 
-BASE_CHANPY_CFG = json.loads((R7_ROOT / "R7_SEMANTIC_MAPPING.json").read_text(encoding="utf-8"))["externalBaseline"]["proposedConfiguration"]
+MAPPING_PATH = ADAPTER_DIR / "r7_semantic_mapping.json"
+if not MAPPING_PATH.exists():
+    MAPPING_PATH = ADAPTER_DIR / "R7_SEMANTIC_MAPPING.json"
+BASE_CHANPY_CFG = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))["externalBaseline"]["proposedConfiguration"]
 
 
 def run_chanpy_window(wid: str, instrument: str, bars: list[dict], cfg_overrides: dict) -> dict[str, list[dict]]:
@@ -124,11 +131,11 @@ def aggregate_scenario(name: str, windows: list[dict], internal_by_win: dict, ex
 
 
 def main():
-    plan = json.loads((R7_ROOT / "formal" / "R7_FORMAL_RUN_PLAN.json").read_text(encoding="utf-8"))
-    windows = plan["windows"]
+    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    windows = [{"datasetId": w["windowId"], "instrument": w["instrument"]} for w in manifest["windows"]]
     varb = json.loads((OUT_DIR / "exp3_v22_varB_projections.json").read_text(encoding="utf-8"))
     bars_by_win = {
-        w["datasetId"]: json.loads((R7_RUN / "inputs" / f"{w['datasetId']}.json").read_text(encoding="utf-8"))["bars"]
+        w["datasetId"]: json.loads((WINDOWS_DIR / f"{w['datasetId']}.json").read_text(encoding="utf-8"))["bars"]
         for w in windows
     }
     ext_default = {w["datasetId"]: run_chanpy_window(w["datasetId"], w["instrument"], bars_by_win[w["datasetId"]], {}) for w in windows}

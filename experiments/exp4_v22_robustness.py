@@ -34,7 +34,7 @@ def load_direction_map():
     for slot in range(1, 6):
         sdir = P0_DIR / f"slot-{slot}"
         res = json.loads((sdir / "result.json").read_text(encoding="utf-8"))
-        wid = res.get("windowId") or res.get("datasetId") or res.get("window_id")
+        wid = res.get("windowId") or res.get("id") or res.get("datasetId") or res.get("window_id")
         sealed = json.loads((sdir / "final-sealed.json").read_text(encoding="utf-8"))
         for layer_key, layer_code in [("strokes", "B"), ("segments", "S"), ("pivots", "Z")]:
             for obj in sealed.get(layer_key, []):

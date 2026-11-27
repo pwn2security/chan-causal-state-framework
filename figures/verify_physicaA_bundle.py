@@ -2,14 +2,17 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, r"./python-libs")
+EXTRA_LIBS = Path(os.environ.get("CT_PYTHON_LIBS", "./python-libs"))
+if EXTRA_LIBS.exists():
+    sys.path.insert(0, str(EXTRA_LIBS))
 import pymupdf
 
-BASE = Path(r"./physicaA")
+BASE = Path(os.environ.get("CT_MANUSCRIPT_DIR", "./physicaA"))
 
 
 def count_cols(spec: str) -> int:
