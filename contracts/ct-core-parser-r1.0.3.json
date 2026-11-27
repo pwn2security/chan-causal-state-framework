@@ -1,0 +1,137 @@
+{
+  "coreParserVersion": "CT-Core-Parser-R1.0.3",
+  "status": "FROZEN_FOR_FORMAL_EXPERIMENT",
+  "freezeDate": "2026-09-13",
+  "structuralTimeVersion": "CT-Structural-Time-v1.0",
+  "snapshotVersion": "CT-StateSnapshot-v4.0",
+  "coreContinuationVersion": "CT-Core-Continuation-v1.0",
+  "parserApiVersion": "CT-Core-Parser-API-v1.0.3",
+  "structureRecordSchemaVersion": "CT-Core-Structure-Record-v1.0",
+  "semanticComparatorVersion": "CT-Core-Semantic-Comparator-v1.0",
+  "normalizedKRuleVersion": "streaming-propagating-inclusion / equal-range-is-inclusion",
+  "fractalRuleVersion": "three-normalized-k-v1",
+  "strokeRuleVersion": "alternating-fractal-min-separation-v1",
+  "segmentRuleVersions": [
+    "CT-Segment-R1.0",
+    "CT-Segment-Case1-R1.0",
+    "CT-Segment-Case2-R1.0",
+    "CT-Segment-Endpoint-Proposal-R1.0",
+    "CT-Segment-Endpoint-Replacement-R1.0",
+    "CT-Segment-Sequential-Lifecycle-R1.0"
+  ],
+  "featureRuleVersions": [
+    "feature-sequence-v0.1",
+    "feature-standardizer-v0.1",
+    "feature-fractal-v0.1",
+    "CT-Segment-R1.0 inclusion"
+  ],
+  "case1RuleVersion": "CT-Segment-Case1-R1.0",
+  "case2RuleVersion": "CT-Segment-Case2-R1.0",
+  "endpointProposalRuleVersion": "CT-Segment-Endpoint-Proposal-R1.0",
+  "endpointReplacementRuleVersion": "CT-Segment-Endpoint-Replacement-R1.0",
+  "sequentialHandoffRuleVersion": "CT-Segment-Sequential-Lifecycle-R1.0",
+  "pivotEstablishmentRuleVersion": "CT-Pivot-Establishment-R1.0",
+  "ruleConfigSchema": {
+    "schemaId": "CT-RuleConfig-v1.0",
+    "requiredFrozenFields": [
+      "ruleVersion",
+      "inclusionRule",
+      "equalHighLowRule",
+      "minimumStrokeSeparation",
+      "minimumSegmentStrokeCount",
+      "strokeEndpointRule",
+      "segmentRuleVersion",
+      "pivotRuleVersion",
+      "pivotEtaZ",
+      "priceTolerance",
+      "numericTolerance"
+    ]
+  },
+  "frozenRuleConfig": {
+    "ruleVersion": "CT-R1.0-phase5d",
+    "inclusionRule": "streaming-propagating-inclusion",
+    "equalHighLowRule": "equal-range-is-inclusion",
+    "minimumStrokeSeparation": 2,
+    "minimumSegmentStrokeCount": 3,
+    "strokeEndpointRule": "same-type-extreme-replacement",
+    "segmentRuleVersion": "CT-Segment-R1.0",
+    "pivotRuleVersion": "CT-Pivot-Establishment-R1.0",
+    "pivotEtaZ": 1e-12,
+    "pivotBreakRule": "TODO-pivot-break-rule-v0",
+    "divergenceFunction": "geometric",
+    "tradingPointRuleVersion": "TODO-trading-point-rule-v0",
+    "priceTolerance": 0,
+    "numericTolerance": 1e-10
+  },
+  "implementationScope": {
+    "notation": "U -> K -> F -> B -> S -> Z_established",
+    "pipeline": [
+      "RawObservation",
+      "NormalizedK",
+      "ConfirmedFractal",
+      "ConfirmedStroke",
+      "SequentialConfirmedSegment",
+      "PivotEstablishment"
+    ],
+    "segment": [
+      "Case1",
+      "Case2DelayedConfirmation",
+      "EndpointProposal",
+      "EndpointReplacement",
+      "SHARED_ENDPOINT_Handoff",
+      "ZeroStrokeOverlap",
+      "OppositeSuccessorDirection",
+      "BoundedCausalBacklog",
+      "SnapshotContinuation"
+    ],
+    "pivot": [
+      "ThreeConsecutiveConfirmedSegments",
+      "ZD_ZG_Overlap",
+      "DualTime",
+      "DeterministicIdentity",
+      "AppendOnlyPivotEstablishedEvent",
+      "SnapshotContinuation",
+      "AutomaticDrawing"
+    ]
+  },
+  "deferredScope": [
+    "GeneralCandidateRestart",
+    "BROKEN",
+    "EndpointDirectionalExtremeTheoreticalResolution",
+    "PivotExtension",
+    "PivotClosure",
+    "PivotBreakGuard",
+    "AdjacentPivotSharing",
+    "NextZoneSeed",
+    "SecondPivotLifecycle",
+    "Trend",
+    "Divergence",
+    "MACDDivergence",
+    "TradingPoint",
+    "ReinforcementLearning",
+    "TradingExecution",
+    "ProfitabilityBacktest"
+  ],
+  "knownRuleStatus": {
+    "G-ENDPOINT-DIRECTIONAL-EXTREME": "UNRESOLVED_POST_HOC_RULE_REQUIRES_THEORETICAL_REVIEW",
+    "candidateRestart": "UNRESOLVED",
+    "broken": "UNRESOLVED",
+    "pivotLifecycle": "ESTABLISHMENT_ONLY"
+  },
+  "bugFixPolicy": {
+    "silentMutationForbidden": true,
+    "nextPatchVersion": "CT-Core-Parser-R1.0.2",
+    "requiresFullE1ToE5Rerun": true
+  },
+  "publicationPolicyVersion": "CT-Core-Sealed-Publication-v1.0",
+  "patchFrom": "CT-Core-Parser-R1.0.2",
+  "patchReason": "CT-R1.0.2-UNSEALED-STROKE-DOWNSTREAM-001: Segment consumed the mutable terminal Stroke, permitting an upstream replacement to conflict with confirmed Segment immutability.",
+  "semanticPatch": {
+    "segmentSourceMaturity": "Segment consumes only the sealed Stroke prefix; the mutable terminal Stroke is retained in Stroke state but is not a downstream Segment input.",
+    "causalAvailability": "A Stroke becomes Segment-available when a later opposite Stroke seals it.",
+    "confirmedSegmentSafety": "Confirmed Segment prefix remains append-only under terminal Stroke replacement.",
+    "publicationPolicy": "CT-Core-Sealed-Publication-v1.0 remains aligned with the internal downstream maturity gate.",
+    "restoredContinuation": "Restored and continuous paths both advance new sealed Strokes through the same guarded Segment transition."
+  },
+  "nextPatchVersion": "CT-Core-Parser-R1.0.4"
+}

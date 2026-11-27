@@ -1,0 +1,319 @@
+{
+  "contractId": "CT-Segment-Sequential-Lifecycle-R1.0",
+  "contractStatus": "DRAFT",
+  "specificationStatus": "PARTIAL_PASS",
+  "implementationStatus": "IMPLEMENTED",
+  "verificationStatus": "CONTRACT_FIXTURE_VERIFIED",
+  "ruleVersion": "CT-Segment-R1.0",
+  "structuralTimeSchemaVersion": "CT-Structural-Time-v1.0",
+  "scope": "Sequential handoff, successor initialization, source ownership, bounded causal backlog replay, identity, and priority are specified. Candidate Restart remains unresolved. This contract does not implement production transitions.",
+  "sourceBasis": [
+    {
+      "reference": "PPT slide 40",
+      "quote": "该线段在该顶分型的高点处结束，该高点是该线段的终点；...该线段在该底分型的低点处结束，该低点是该线段的终点",
+      "supports": "Case-1 geometric endpoint is the feature-fractal extreme, which is also the unique sequential boundary."
+    },
+    {
+      "reference": "PPT slide 41",
+      "quote": "确认线段1-4结束 / 确认线段4-7结束 / 可以确认7-18线段结束",
+      "supports": "Connected numbered endpoints 4 and 7 are shared geometric anchors, not independently derived successor starts."
+    },
+    {
+      "reference": "PPT slide 42",
+      "quote": "如果从该分型最高点开始的向下一笔开始的序列的特征序列出现底分型，那么该线段在该顶分型的高点处结束",
+      "supports": "Case-2 still ends at the same fractal extreme; reverse evidence starts from that shared endpoint."
+    },
+    {
+      "reference": "PPT slide 43",
+      "quote": "一切同一级别图上的走势都可以唯一地划分为线段的连接",
+      "supports": "Sequential Segment lineage is a unique same-level partition into connected Segments."
+    },
+    {
+      "reference": "PPT slide 45",
+      "quote": "从向上一笔开始的线段不可能被向上一笔的线段所破坏，必然是被从向下一笔开始的线段所破坏",
+      "supports": "Successor direction is necessarily opposite; it is not inferred from a completed future chart."
+    },
+    {
+      "reference": "PPT slide 46",
+      "quote": "出现反向分型56-78-910，无论是否有缺口，都可以确认第一段1-4结束；...因为没有缺口，同时也确认了7-10完成",
+      "supports": "Delayed Case-2 confirmation can make later connected boundaries knowable at one later clock; this is explained by handoff plus existing Case-1/Case-2 on replayed prefix evidence, not a new cascade operator."
+    },
+    {
+      "reference": "PPT slide 46 failure path",
+      "quote": "这里并没有出现反向分型，而是直接破底，所以4-7段未结束，继续向下延伸",
+      "supports": "Missing reverse fractal continues the same unconfirmed candidate. This is extension, not Candidate Restart. No unique positive G_restart is supplied."
+    },
+    {
+      "reference": "PPT slide 48-49",
+      "quote": "不同特序之间的元素不能进行包含处理；最早破坏那笔...属于待定状态，一旦该笔延伸出三笔以上，那么新的线段就形成了",
+      "supports": "The first breaking Stroke is a pending boundary source, not predecessor feature memory; after the successor Segment is established it becomes the first successor member. Feature-sequence participation is not Stroke membership."
+    },
+    {
+      "reference": "main.tex dual-time, continuation closure, segment automaton",
+      "supports": "Geometric anchor and causal handoff availability are distinct; continuation state cannot depend on an archive scan."
+    }
+  ],
+  "handoffOperator": {
+    "symbol": "H_S",
+    "status": "RULE_FROZEN",
+    "input": [
+      "confirmedPredecessorSegment",
+      "latestConfirmedSegmentAnchor",
+      "confirmedStrokeContinuationBuffer",
+      "currentAvailability",
+      "RuleConfig"
+    ],
+    "output": [
+      "EMPTY",
+      "SuccessorSeed"
+    ],
+    "preconditions": [
+      "predecessor status is CONFIRMED",
+      "predecessor publication identity and endpoint provenance are valid",
+      "Rule Version is unchanged",
+      "only prefix-available confirmed Strokes are inspected",
+      "no successor lineage for this predecessor has already been created"
+    ],
+    "emptyCondition": "No legal first successor Stroke starts at the shared endpoint and is causally available at handoff time.",
+    "seedCondition": "The earliest legal opposite-direction Stroke starts at the shared endpoint; every included backlog Stroke forms one contiguous alternating source chain and is confirmed by handoff time.",
+    "productionStatus": "IMPLEMENTED"
+  },
+  "handoffPolicy": {
+    "status": "RULE_FROZEN",
+    "policy": "SHARED_ENDPOINT",
+    "equation": "end(S_m) = start(S_{m+1})",
+    "meaning": "Geometric endpoint identity/coordinates are shared as a boundary anchor.",
+    "notImplied": [
+      "predecessor final Stroke membership is shared",
+      "predecessor feature memory is inherited",
+      "successor was known at the geometric endpoint time"
+    ]
+  },
+  "strokeOwnershipPolicy": {
+    "status": "RULE_FROZEN",
+    "overlapPolicy": "ZERO_STROKE_OVERLAP_ONE_ENDPOINT_SHARED",
+    "predecessorMemberStrokes": "EXCLUSIVE_TO_PREDECESSOR",
+    "sharedBoundary": "Endpoint Fractal identity/geometry only",
+    "firstSuccessorStroke": "The earliest confirmed Stroke whose start endpoint equals the predecessor endpoint and whose direction is opposite the predecessor direction.",
+    "successorMemberStrokes": "First successor Stroke and its later contiguous alternating chain; none may be a predecessor member Stroke.",
+    "multiStrokeOverlapAllowed": false,
+    "endpointSharingEqualsStrokeSharing": false,
+    "waitingWindowOwnership": "Before predecessor confirmation, potential successor Strokes are UNASSIGNED_PENDING_BOUNDARY; after handoff they may be consumed by the new lineage through bounded replay.",
+    "featureSequenceParticipationVsMembership": "A Stroke may appear in the predecessor primary Feature Sequence as confirming evidence while remaining a non-member of the predecessor Segment. After handoff that Stroke may be the first successor member. This is not multi-Stroke membership overlap.",
+    "firstBreakingStroke": "The earliest opposite-direction Stroke starting at the shared endpoint is pending-boundary until H_S; it is never a predecessor member Stroke and never a predecessor Feature-Sequence continuation after confirmation."
+  },
+  "pendingBoundaryStrokePolicy": {
+    "status": "RULE_FROZEN",
+    "source": "PPT slide 49",
+    "rule": "The first breaking Stroke is UNASSIGNED_PENDING_BOUNDARY until a successor candidate is created. It is then the first successor member, not a predecessor member.",
+    "inclusionAcrossBoundary": "FORBIDDEN"
+  },
+  "case2ReverseVsSuccessorSourcePolicy": {
+    "status": "RULE_FROZEN",
+    "physicalStrokeReuseAfterHandoff": true,
+    "reverseMachineStateInheritance": false,
+    "rule": "Case-2 reverse-sequence Strokes are not predecessor members. After predecessor confirmation they may enter the successor source domain through bounded causal replay. Successor primary Feature/standardizer/fractal/gap/pending/proposal machines start empty and consume those Strokes as ordinary successor sources. Reverse Feature Fractal state is never copied."
+  },
+  "cascadePolicy": {
+    "status": "RULE_FROZEN",
+    "specialCascadeOperator": false,
+    "rule": "After H_S and bounded replay, the successor is evaluated with the same frozen lifecycle priority. If Case-1 or Case-2 then holds on replayed prefix evidence, the successor may confirm in the same causal update and H_S may repeat. PPT 46 simultaneous confirmation of 4-7 and 7-10 is this recursive application, not a new confirmation case.",
+    "productionStatus": "IMPLEMENTED"
+  },
+  "successorDirectionPolicy": {
+    "status": "RULE_FROZEN",
+    "equation": "direction(S_{m+1}) = opposite(direction(S_m))",
+    "futureChartInferenceAllowed": false,
+    "firstSourceGuard": "firstSuccessorStroke.direction must equal successor direction"
+  },
+  "successorSeedPolicy": {
+    "status": "RULE_FROZEN",
+    "requiredFields": [
+      "successorCandidateId",
+      "predecessorSegmentId",
+      "predecessorConfirmedSegmentIndex",
+      "candidateLineageOrdinal",
+      "startAnchor",
+      "startEndpoint",
+      "sourceStrokeIds",
+      "initialDirection",
+      "eventRawBarIndex",
+      "eventTime",
+      "candidateAvailableRawBarIndex",
+      "candidateCreatedTime",
+      "sourceCursor",
+      "ruleVersion",
+      "provenance"
+    ],
+    "candidateIdExpression": "candidate:${ruleVersion}:${predecessorConfirmedSegmentId}:${firstSuccessorStrokeId}",
+    "randomIdentityAllowed": false,
+    "sequenceIndexAsSoleIdentityAllowed": false,
+    "initialRevision": 0,
+    "stateByConsumedSourceCount": {
+      "0": "EMPTY_NO_ACTIVE_CANDIDATE",
+      "1": "FORMING",
+      "2": "EXTENDING",
+      "3_or_more": "EXTENDING_NOT_AUTOMATICALLY_CONFIRMED"
+    }
+  },
+  "handoffDualTime": {
+    "status": "RULE_FROZEN",
+    "eventTime": "predecessor shared endpoint geometric eventTime",
+    "eventRawBarIndex": "predecessor shared endpoint eventRawBarIndex",
+    "candidateCreatedTime": "max(predecessor.confirmTime, maximum availability time of source Strokes admitted into the initial seed)",
+    "candidateAvailableRawBarIndex": "max(predecessor.confirmRawBarIndex, maximum confirmRawBarIndex of source Strokes admitted into the initial seed)",
+    "onlineSimplification": "Because initial backlog eligibility requires source confirmation no later than predecessor confirmation, candidateCreatedTime equals predecessor.confirmTime in an on-time causal update.",
+    "inequality": "eventTime <= candidateCreatedTime",
+    "historicalDrawingBackfillAllowed": true,
+    "parserAvailabilityBackfillAllowed": false
+  },
+  "sourceCursorPolicy": {
+    "status": "RULE_FROZEN",
+    "boundaryIdentity": [
+      "predecessor endpointStrokeId",
+      "predecessor endpointFractalId",
+      "endpoint eventRawBarIndex",
+      "endpoint eventTime",
+      "endpoint price"
+    ],
+    "startCursor": "The first non-predecessor Stroke whose start Fractal/index/time/price equals the shared endpoint and whose direction equals the successor direction.",
+    "endCursorAtHandoff": "The latest confirmed Stroke in the current prefix with confirmTime and confirmRawBarIndex no later than handoff availability.",
+    "cursorRepresentation": "Typed Stroke identity plus Stroke ordinal; array position alone is insufficient.",
+    "deduplication": "Consume each source Stroke identity/revision at most once.",
+    "gapOrDiscontinuityAction": "Stop before the incompatible Stroke and return SOURCE_CHAIN_INCOMPATIBLE; do not scan around it."
+  },
+  "backlogReplayPolicy": {
+    "status": "RULE_FROZEN",
+    "policy": "BOUNDED_CAUSAL_REPLAY_REQUIRED",
+    "rationale": "Case-2 confirmation can occur after successor-domain Strokes have already become confirmed. Discarding them would make sequential output depend on processing delay.",
+    "start": "sourceCursor.startCursor at the shared endpoint",
+    "end": "sourceCursor.endCursorAtHandoff",
+    "eligibility": [
+      "Stroke is CONFIRMED",
+      "Stroke confirmation is no later than handoff availability",
+      "Stroke belongs to the contiguous successor source chain",
+      "Stroke is not a predecessor member",
+      "Stroke Rule Version matches",
+      "Stroke identity/revision has not been consumed by this successor"
+    ],
+    "futureSourceRejection": "Any Stroke with availability after handoff is excluded and can only arrive through a later online update.",
+    "historicalArbitraryScanAllowed": false,
+    "featureStateHandling": "Replay eligible raw Stroke updates through fresh successor feature machines; do not copy predecessor or Case-2 reverse machine state."
+  },
+  "successorFeatureStatePolicy": {
+    "status": "RULE_FROZEN",
+    "primaryRawFeatureSequence": "NEW_EMPTY_THEN_REPLAY",
+    "standardizer": "NEW_EMPTY_THEN_REPLAY",
+    "pendingDirection": "NEW_EMPTY_THEN_REPLAY",
+    "featureFractalDetector": "NEW_EMPTY_THEN_REPLAY",
+    "gapState": "NEW_EMPTY_THEN_REPLAY",
+    "endpointProposalState": "EMPTY",
+    "pendingTermination": "EMPTY",
+    "reverseState": "EMPTY",
+    "inheritedFromPredecessor": [
+      "shared endpoint anchor",
+      "predecessor confirmed publication identity",
+      "frozen Rule Version"
+    ]
+  },
+  "identityPolicy": {
+    "status": "RULE_FROZEN",
+    "candidateIdentity": "A new successor gets a new segmentCandidateId. Candidate revisions never cross a handoff.",
+    "confirmedPublicationIdentity": "confirmed:${ruleVersion}:${sourceCandidateId}:${finalCandidateRevision}:${caseType}",
+    "confirmedAndCandidateNamespacesDistinct": true,
+    "confirmedRequiredFields": [
+      "confirmedSegmentId",
+      "sourceCandidateId",
+      "segmentSequenceIndex",
+      "predecessorSegmentId"
+    ],
+    "candidateSequence": "candidateLineageOrdinal increments for each created lineage, including a future restart.",
+    "confirmedSequence": "segmentSequenceIndex increments only on exactly-once confirmed publication; restart never increments it.",
+    "currentProductionMismatch": null
+  },
+  "confirmedModePolicy": {
+    "status": "RULE_FROZEN",
+    "publication": "Confirmed predecessor remains immutable in confirmed output/archive.",
+    "activeSlot": "After publication, H_S either creates a FORMING/EXTENDING successor or leaves no active candidate while retaining latestConfirmedSegmentAnchor.",
+    "topLevelMode": "HANDOFF and RESTARTED are transition actions, not persistent q^S modes.",
+    "singleSlotRequirement": "X^S must distinguish latest confirmed anchor from activeCandidate; archive lookup is forbidden for continuation."
+  },
+  "restartGuard": {
+    "contractId": "CT-SEG-SEQ-RESTART",
+    "status": "UNRESOLVED",
+    "reason": "The audited sources define continuation versus confirmed opposite Segment boundaries but do not uniquely define when an unconfirmed candidate lineage must be abandoned and reseeded.",
+    "forbiddenDefaultTriggers": [
+      "elapsed N bars",
+      "elapsed N Strokes",
+      "ordinary extension",
+      "eligible endpoint replacement",
+      "Case-1 confirmation",
+      "Case-2 pending",
+      "Case-2 confirmation"
+    ],
+    "minimumSemanticsIfLaterFrozen": [
+      "only an unconfirmed active candidate may restart",
+      "old lineage is explicitly superseded",
+      "new segmentCandidateId is created",
+      "old PendingTermination becomes STALE with reason CANDIDATE_RESTARTED",
+      "old reverse and unconsumed EndpointProposal evidence is invalidated",
+      "same restart evidence is consumed exactly once",
+      "confirmed history is unchanged"
+    ],
+    "productionAction": "RULE_UNSPECIFIED_NO_TRANSITION"
+  },
+  "lifecyclePriority": {
+    "status": "RULE_FROZEN_EXCEPT_RESTART_GUARD",
+    "orderedMicroTransitions": [
+      "VALIDATE_RULE_CLOCK_IDENTITY_AND_DEDUPLICATE",
+      "INGEST_LEGAL_CONFIRMED_STROKE_AND_UPDATE_CURRENT_CANDIDATE",
+      "GENERATE_ENDPOINT_PROPOSAL",
+      "APPLY_ACCEPTED_ENDPOINT_REPLACEMENT_AND_INVALIDATE_DEPENDENCIES",
+      "REEVALUATE_CASE1_OR_CASE2_AGAINST_POST_REPLACEMENT_STATE",
+      "PUBLISH_CONFIRMATION_EXACTLY_ONCE",
+      "HANDOFF_FROM_CONFIRMED_PUBLICATION",
+      "EVALUATE_RESTART_ONLY_IF_A_FUTURE_G_RESTART_IS_FROZEN"
+    ],
+    "sameUpdateProposalAndConfirmation": "Replacement is decided first. Confirmation may then use only the post-replacement state; the old endpoint state cannot confirm.",
+    "case1VsCase2": "Mutually exclusive by the frozen gap guard.",
+    "primaryOutcome": "If a post-reset confirmation is emitted, CONFIRM is the primary outcome even when earlier micro-transition traces exist.",
+    "confirmAndRestartSameUpdateAllowed": false,
+    "handoffAndRestartSameAction": false
+  },
+  "activeMemoryPolicy": {
+    "status": "IMPLEMENTED",
+    "requiredFields": [
+      "latestConfirmedSegmentAnchor",
+      "activeCandidate",
+      "activeCandidateId",
+      "candidateLineageOrdinal",
+      "nextConfirmedSegmentSequenceIndex",
+      "successorSourceBoundary",
+      "successorSourceCursor",
+      "consumedSuccessorStrokeIdentities",
+      "boundedBacklogBufferOrEquivalentContinuationSummary",
+      "handoffConsumedPredecessorIds"
+    ],
+    "archiveAsContinuationInputAllowed": false,
+    "copyPredecessorMemoryAllowed": false
+  },
+  "snapshotRequirements": {
+    "status": "IMPLEMENTED",
+    "auditedGlobalSnapshotVersion": "CT-StateSnapshot-v3.0",
+    "currentCoverage": "CT-StateSnapshot-v3.0 stores sequentialContinuation; v2 confirmed sequential state is rejected without silent reinterpretation.",
+    "upgradeInThisPhase": true,
+    "silentCompatibilityAllowed": false
+  },
+  "brokenInteraction": {
+    "status": "UNRESOLVED",
+    "label": "BROKEN_INTERACTION",
+    "scope": "No G_broken or post-confirm break transition is defined by this contract."
+  },
+  "unresolvedItems": [
+    "Candidate Restart positive guard and restart anchor",
+    "BROKEN lifecycle and its interaction with sequential candidates",
+    "G-ENDPOINT-DIRECTIONAL-EXTREME remains POST_HOC_RULE_REQUIRES_THEORETICAL_REVIEW",
+    "Formal E1-E9 evidence"
+  ],
+  "claimBoundary": "Frozen shared-endpoint sequential handoff is production implemented and unit/invariant verified. Candidate Restart remains unresolved, so this is not a complete general sequential Segment parser."
+}

@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "CT-Public-Window-Manifest-v1.0",
+  "redistributionPolicy": "Raw exchange OHLC bars are omitted due to exchange redistribution terms. Fetch official Binance Vision archives for the listed UTC intervals and verify SHA-256 digests with verify_hashes.py.",
+  "windowCount": 14,
+  "windows": [
+    {
+      "ordinal": 0,
+      "windowId": "BTCUSDT-2025-01-01-tick-derived-571",
+      "instrument": "BTCUSDT",
+      "venue": "Binance BTCUSDT Spot/Trades archive",
+      "interval": "1m",
+      "barCount": 571,
+      "firstBarStartUtc": "2025-01-01T00:00:00+00:00",
+      "lastBarEndUtc": "2025-01-01T09:30:59.999000+00:00",
+      "sourceFileSha256": "9f1cebe48cb5c039827175a56271616ea62f8aa622ba4d1e5cfd3aa1e555889b"
+    },
+    {
+      "ordinal": 1,
+      "windowId": "BTCUSDT-2025-01-02-1s-derived-720",
+      "instrument": "BTCUSDT",
+      "venue": "Binance BTCUSDT Spot/Trades archive",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2025-01-02T00:00:00+00:00",
+      "lastBarEndUtc": "2025-01-02T11:59:59.999000+00:00",
+      "sourceFileSha256": "23f63b2edd9c5af1badaaf8f95e96af0734e944bdaace38086df8f31d21f2b4c"
+    },
+    {
+      "ordinal": 2,
+      "windowId": "R4-BTCUSDT-2026-06-FIXED-01",
+      "instrument": "BTCUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-06-08T00:00:00+00:00",
+      "lastBarEndUtc": "2026-06-08T11:59:59.999000+00:00",
+      "sourceFileSha256": "5b3da7cfbdd33b243572a9e9b796e7be3b49492aa805ce6d75e05c505ecf2c56"
+    },
+    {
+      "ordinal": 3,
+      "windowId": "R4-ETHUSDT-2026-06-FIXED-01",
+      "instrument": "ETHUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-06-08T00:00:00+00:00",
+      "lastBarEndUtc": "2026-06-08T11:59:59.999000+00:00",
+      "sourceFileSha256": "7be18cecc9d570037cf750f90a92c4063f305ebe293281768a4c69cf01b61c13"
+    },
+    {
+      "ordinal": 4,
+      "windowId": "R4-XAUUSDT-2026-06-FIXED-01",
+      "instrument": "XAUUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-06-08T00:00:00+00:00",
+      "lastBarEndUtc": "2026-06-08T11:59:59.999000+00:00",
+      "sourceFileSha256": "98552a280f246007f2c201f630ba38d538117a21fea5c11a3f516f11f9c27c84"
+    },
+    {
+      "ordinal": 5,
+      "windowId": "R4-SPYUSDT-2026-06-FIXED-01",
+      "instrument": "SPYUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-06-08T00:00:00+00:00",
+      "lastBarEndUtc": "2026-06-08T11:59:59.999000+00:00",
+      "sourceFileSha256": "90b1b5a279b3a8b1c89ba2984a7e81b4cd78144ee1ff5f25f62be6777fbc85c6"
+    },
+    {
+      "ordinal": 6,
+      "windowId": "R4-BTCUSDT-2026-07-FIXED-01",
+      "instrument": "BTCUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-07-13T00:00:00+00:00",
+      "lastBarEndUtc": "2026-07-13T11:59:59.999000+00:00",
+      "sourceFileSha256": "18ce483c1e2581cd915823943b86932fc2cde1761ba9b86ef2490d5ad0338f44"
+    },
+    {
+      "ordinal": 7,
+      "windowId": "R4-ETHUSDT-2026-07-FIXED-01",
+      "instrument": "ETHUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-07-13T00:00:00+00:00",
+      "lastBarEndUtc": "2026-07-13T11:59:59.999000+00:00",
+      "sourceFileSha256": "cd71a2dd8b5c095267289db994bc836bde1b1fa761704d8d228d3a896395df98"
+    },
+    {
+      "ordinal": 8,
+      "windowId": "R4-XAUUSDT-2026-07-FIXED-01",
+      "instrument": "XAUUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-07-13T00:00:00+00:00",
+      "lastBarEndUtc": "2026-07-13T11:59:59.999000+00:00",
+      "sourceFileSha256": "8d4b3220feb5e55f8d713222c8588ed925fc7533929f11c46bc9ebcb6008893c"
+    },
+    {
+      "ordinal": 9,
+      "windowId": "R4-SPYUSDT-2026-07-FIXED-01",
+      "instrument": "SPYUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-07-13T00:00:00+00:00",
+      "lastBarEndUtc": "2026-07-13T11:59:59.999000+00:00",
+      "sourceFileSha256": "b355b0bfc4691bfffd0d742e454843d0bbaa03dc4b5ab0ddfca75259954ff791"
+    },
+    {
+      "ordinal": 10,
+      "windowId": "R4-BTCUSDT-2026-08-FIXED-01",
+      "instrument": "BTCUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-08-10T00:00:00+00:00",
+      "lastBarEndUtc": "2026-08-10T11:59:59.999000+00:00",
+      "sourceFileSha256": "674ae1d646ab6fb43e0a65b77aa092175f736aaf601f7204f624f9f02dbeebeb"
+    },
+    {
+      "ordinal": 11,
+      "windowId": "R4-ETHUSDT-2026-08-FIXED-01",
+      "instrument": "ETHUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-08-10T00:00:00+00:00",
+      "lastBarEndUtc": "2026-08-10T11:59:59.999000+00:00",
+      "sourceFileSha256": "faad3f343a7d79e2bc90faad59690b9ddb8771697df07d015eb26a108f50ee2f"
+    },
+    {
+      "ordinal": 12,
+      "windowId": "R4-XAUUSDT-2026-08-FIXED-01",
+      "instrument": "XAUUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-08-10T00:00:00+00:00",
+      "lastBarEndUtc": "2026-08-10T11:59:59.999000+00:00",
+      "sourceFileSha256": "f09151444c5cb8627e8e85ec494032ad8bbbf4759dff7c56aadd6c01b133c4fb"
+    },
+    {
+      "ordinal": 13,
+      "windowId": "R4-SPYUSDT-2026-08-FIXED-01",
+      "instrument": "SPYUSDT",
+      "venue": "Binance USD-M Futures (perpetual)",
+      "interval": "1m",
+      "barCount": 720,
+      "firstBarStartUtc": "2026-08-10T00:00:00+00:00",
+      "lastBarEndUtc": "2026-08-10T11:59:59.999000+00:00",
+      "sourceFileSha256": "3bf420f70e0698a1daa60f99db9a99358f7c799fd0dc4a325c5d189523c302d6"
+    }
+  ]
+}

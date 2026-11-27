@@ -1,0 +1,15 @@
+{
+  "comparatorVersion": "CT-Core-Semantic-Comparator-v1.0",
+  "implementation": "src/ct/core-parser-api.js#compareCoreParserSemantics",
+  "formalConsumers": ["E2A", "E3", "E4 artifact equivalence"],
+  "semanticDomains": [
+    "layer modes", "continuous-valued geometry", "active memory", "candidate identities",
+    "source and handoff cursors", "pending termination", "reverse state",
+    "Pivot forming state", "rule versions", "structural clocks", "confirmed structures"
+  ],
+  "excludedRuntimeFields": [
+    "stateHash", "activeMemorySize", "lastEventId", "createdAt",
+    "parserRuntimeMs", "segmentRuntimeMs", "pivotRuntimeMs"
+  ],
+  "comparison": "Canonical JSON equality after recursive runtime-field exclusion; hashes are diagnostic, not a replacement for equality."
+}

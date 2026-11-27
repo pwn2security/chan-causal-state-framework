@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "CT-E3-Continuation-Comparator-Spec-v1.0",
+  "comparatorVersion": "CT-E3-Continuation-Semantic-Comparator-v1.1",
+  "parentComparatorVersion": "CT-E3-Semantic-Comparator-v1.0",
+  "amendmentScope": "E3 continuation semantic projection only",
+  "implementation": {
+    "path": "experiments/core-paper/formal/lib/e3-continuation-comparator.mjs",
+    "sha256": "1de07f693f2ceb64dc2bbc6358238b6341cb80fa02824b4942539dd22934becd"
+  },
+  "retainedStrictFields": [
+    "eventStrokeIndex",
+    "availableStrokeIndex",
+    "confirmStrokeIndex",
+    "segment candidate identity",
+    "segment candidate strokes",
+    "PendingTermination",
+    "endpoint identity",
+    "handoff cursor",
+    "backlog cursor and progress",
+    "confirmed publications",
+    "eventTime",
+    "confirmTime",
+    "provenance",
+    "ruleVersion"
+  ],
+  "excludedArchiveWidthFields": [
+    {
+      "path": "segmentState.continuousState.inputStrokeCount",
+      "reason": "counts the full source archive width and is not continuation-relevant when snapshot restore is future-only"
+    }
+  ],
+  "normalizedFields": [
+    {
+      "path": "segmentState.activeMemory.unfinishedStrokeIds",
+      "rule": "retain only IDs present in the bounded continuation scope",
+      "continuationScopeSources": [
+        "segmentState.sequentialContinuation.continuationStrokeBuffer[*].id",
+        "segmentState.continuation.candidateStrokes[*].id",
+        "segmentState.continuation.pendingBacklogStrokes[*].id",
+        "segmentState.activeSegment.strokeIds[*]"
+      ],
+      "reason": "exclude pre-checkpoint archive-width residue while preserving unfinished continuation obligations"
+    }
+  ],
+  "prohibitedChanges": [
+    "Frozen Core comparator modification",
+    "eventStrokeIndex exclusion",
+    "snapshot semantic change",
+    "parser rule change"
+  ]
+}

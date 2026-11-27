@@ -1,0 +1,11 @@
+node_modules/
+results/
+local_windows/
+external_r7/
+chan.py-main/
+four_clock_replay/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+mpl-cache/

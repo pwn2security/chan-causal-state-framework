@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "CT-Core-Structure-Record-v1.0",
+  "type": "object",
+  "required": [
+    "schemaVersion", "structureId", "structureType", "status", "ruleVersion",
+    "eventTime", "confirmTime", "eventRawBarIndex", "confirmRawBarIndex",
+    "geometry", "sourceIds", "provenance"
+  ],
+  "properties": {
+    "schemaVersion": {"const": "CT-Core-Structure-Record-v1.0"},
+    "structureId": {"type": "string", "minLength": 1},
+    "structureType": {"enum": ["normalizedK", "fractal", "stroke", "segment", "pivotZone"]},
+    "status": {"type": "string"},
+    "ruleVersion": {"type": "string"},
+    "eventTime": {"type": ["number", "null"]},
+    "availableTime": {"type": ["number", "null"]},
+    "confirmTime": {"type": ["number", "null"]},
+    "eventRawBarIndex": {"type": ["integer", "null"]},
+    "availableRawBarIndex": {"type": ["integer", "null"]},
+    "confirmRawBarIndex": {"type": ["integer", "null"]},
+    "direction": {"type": ["string", "null"]},
+    "geometry": {"type": "object"},
+    "sourceIds": {"type": "array", "items": {"type": "string"}},
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": false
+}

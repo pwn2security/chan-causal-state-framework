@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "CT-Structural-Time-v1.0",
+  "status": "RULE_FROZEN",
+  "clock": "raw observation availability clock",
+  "timeInvariant": {
+    "dualTime": "eventTime <= confirmTime",
+    "tripleTime": "eventTime <= availableTime <= confirmTime",
+    "strictInequalityRequired": false
+  },
+  "indexSpaces": {
+    "rawBar": "eventRawBarIndex / availableRawBarIndex / confirmRawBarIndex",
+    "normalizedK": "eventNormalizedKIndex / availableNormalizedKIndex / confirmNormalizedKIndex",
+    "stroke": "eventStrokeIndex / availableStrokeIndex / confirmStrokeIndex",
+    "feature": "eventFeatureIndex / availableFeatureIndex / confirmFeatureIndex",
+    "decisionCursor": "barIndex or currentRawBarIndex; never a structural sequence index"
+  },
+  "indexValueInvariant": "Structural indices are non-negative integers and are rejected, never truncated, when fractional; only an empty snapshot cursor may be -1.",
+  "legacyAliases": {
+    "eventIndex": {
+      "status": "DEPRECATED",
+      "exactMapping": "eventRawBarIndex"
+    },
+    "confirmIndex": {
+      "status": "DEPRECATED",
+      "exactMapping": "confirmRawBarIndex"
+    },
+    "availableAtIndex": {
+      "status": "DEPRECATED",
+      "exactMapping": "availableRawBarIndex"
+    },
+    "availableAtTime": {
+      "status": "DEPRECATED",
+      "exactMapping": "availableTime"
+    }
+  },
+  "objects": {
+    "normalizedK": {
+      "event": "normalized interval geometric end",
+      "availability": "closed source raw bar availability",
+      "confirmation": "same update under the current closed-bar policy",
+      "structuralIndex": "normalizedKIndex"
+    },
+    "fractal": {
+      "event": "middle normalized K geometric source end",
+      "availability": "right normalized K availability",
+      "confirmation": "first update where the right normalized K completes the strict guard",
+      "structuralIndex": "normalized K index"
+    },
+    "stroke": {
+      "event": "end fractal geometric event",
+      "availability": "end fractal confirmation availability",
+      "confirmation": "first update where the stroke endpoint rule and spacing guard hold",
+      "structuralIndex": "stroke index"
+    },
+    "rawFeatureElement": {
+      "event": "source stroke endpoint geometry",
+      "availability": "source stroke confirmation",
+      "confirmation": "deprecated alias of raw-feature availability",
+      "structuralIndex": "raw feature sequence index plus source stroke index"
+    },
+    "standardizedFeatureElement": {
+      "event": "latest geometric source end represented by the sealed aggregate",
+      "availability": "non-including successor that seals the aggregate",
+      "confirmation": "deprecated alias of standardization availability",
+      "structuralIndex": "standardized feature sequence index"
+    },
+    "featureFractal": {
+      "event": "middle standardized feature geometric source end",
+      "availability": "middle standardized feature sealing availability",
+      "confirmation": "right stable standardized feature availability where the full strict guard first holds",
+      "structuralIndex": "eventFeatureIndex is middle; confirmFeatureIndex is right"
+    },
+    "case1Segment": {
+      "event": "mapped candidate endpoint geometric time",
+      "availability": "mapped endpoint source stroke availability",
+      "confirmation": "first causal decision time where all Case-1 guards hold",
+      "structuralIndex": "raw-bar and stroke coordinates are explicit"
+    },
+    "structuralEvent": {
+      "confirmedAction": "CONFIRMED",
+      "requiredConfirmedFields": [
+        "uniqueId",
+        "schemaVersion",
+        "ruleVersion",
+        "barIndex",
+        "barTime",
+        "eventTime",
+        "confirmTime",
+        "provenance"
+      ],
+      "caseSpecificMeaning": "stored in metadata (for example metadata.caseType=CASE_1), not encoded as a second eventAction vocabulary"
+    }
+  },
+  "snapshotCompatibility": {
+    "snapshotSchemaVersion": "CT-StateSnapshot-v2.0",
+    "policy": "REJECT_INCOMPATIBLE",
+    "unversionedSnapshots": "REJECT"
+  }
+}

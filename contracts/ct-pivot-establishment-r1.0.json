@@ -1,0 +1,140 @@
+{
+  "contractId": "CT-Pivot-Establishment-R1.0",
+  "parentAuditContract": "CT-Pivot-R1.0",
+  "phase": "Phase 6A1 contract / Phase 6B1 production",
+  "contractStatus": "RULE_FROZEN",
+  "implementationStatus": "IMPLEMENTED",
+  "verificationStatus": "UNIT_AND_INVARIANT_VERIFIED",
+  "formalExperimentStatus": "NOT_EXECUTED",
+  "scope": {
+    "included": [
+      "confirmed Segment source validation",
+      "three-source initial Pivot establishment",
+      "append-only PivotEstablishedEvent",
+      "future automatic rectangle reconstruction from publication"
+    ],
+    "excluded": [
+      "extension geometry",
+      "closure",
+      "C_break",
+      "BROKEN",
+      "adjacent-Pivot source sharing",
+      "next-zone seed",
+      "second Pivot",
+      "Trend"
+    ]
+  },
+  "source": {
+    "domain": "CONFIRMED_SEGMENT_PUBLICATION_ONLY",
+    "requiredCount": 3,
+    "ordered": true,
+    "sequenceIndicesMustBeConsecutive": true,
+    "duplicateIdentityAction": "IGNORE_DUPLICATE",
+    "activeCandidateForbidden": true,
+    "interval": {
+      "low": "min(startPrice,endPrice)",
+      "high": "max(startPrice,endPrice)"
+    }
+  },
+  "establishment": {
+    "ZD": "max(l_0,l_1,l_2)",
+    "ZG": "min(h_0,h_1,h_2)",
+    "DD": "min(l_0,l_1,l_2)",
+    "GG": "max(h_0,h_1,h_2)",
+    "W_Z": "ZG-ZD",
+    "R_Z": "GG-DD",
+    "eta_Z": 1e-12,
+    "omega_Z": "W_Z/(R_Z+eta_Z)",
+    "eta_Z_is_overlap_tolerance": false,
+    "predicate": "ZD <= ZG",
+    "epsilonApplied": false,
+    "zeroWidthContact": "VALID",
+    "failedTripleTransition": "(S_i,S_{i+1},S_{i+2}) -> (S_{i+1},S_{i+2},S_{i+3})",
+    "arbitraryHistoricalCombinationSearch": "FORBIDDEN"
+  },
+  "time": {
+    "schemaVersion": "CT-Structural-Time-v1.0",
+    "eventTime": {
+      "status": "RULE_FROZEN",
+      "definition": "max(sourceSegment.eventTime)",
+      "meaning": "first geometric time at which the complete ordered three-Segment seed geometry exists",
+      "normalSequentialInterpretation": "third relevant Segment geometric completion event",
+      "confirmTimeIsNotEventTimeByConvenience": true
+    },
+    "confirmTime": {
+      "status": "RULE_FROZEN",
+      "definition": "max(sourceSegment.confirmTime)",
+      "meaning": "first causal time at which all three required confirmed Segment publications are available",
+      "additionalStabilityGuard": false,
+      "sameUpdateThirdConfirmationMayEstablish": true
+    },
+    "invariant": "eventTime <= confirmTime",
+    "invalidSourceClockAction": "REJECT_INVALID_DUAL_TIME"
+  },
+  "publication": {
+    "eventType": "PivotEstablishedEvent",
+    "appendOnly": true,
+    "exactlyOncePerOrderedTriple": true,
+    "immutableAfterPublication": true,
+    "fields": [
+      "pivotId",
+      "sourceSegmentIds",
+      "sourceSequenceIndices",
+      "ZD",
+      "ZG",
+      "DD",
+      "GG",
+      "W_Z",
+      "R_Z",
+      "omega_Z",
+      "eta_Z",
+      "eventTime",
+      "confirmTime",
+      "ruleVersion",
+      "timeSchemaVersion",
+      "provenance"
+    ],
+    "postEstablishmentSourceAction": "PIVOT_EXTENSION_OUT_OF_CURRENT_SCOPE",
+    "silentMutationForbidden": true
+  },
+  "identity": {
+    "status": "RULE_FROZEN",
+    "definition": "confirmed:CT-Pivot-Establishment-R1.0:{ordered sourceSegmentIds joined by >}",
+    "runtimeUuidForbidden": true,
+    "arrayIndexForbidden": true,
+    "replayStable": true
+  },
+  "state": {
+    "forming": "FORMING",
+    "waitingReason": "WAITING_FOR_THIRD_CONFIRMED_SEGMENT",
+    "established": "ESTABLISHED",
+    "afterEstablishedAction": "PIVOT_EXTENSION_OUT_OF_CURRENT_SCOPE",
+    "secondPivotWithoutLifecycleRules": "FORBIDDEN"
+  },
+  "snapshot": {
+    "auditedVersion": "CT-StateSnapshot-v3.0",
+    "currentVersion": "CT-StateSnapshot-v4.0",
+    "result": "SNAPSHOT_V4_IMPLEMENTED",
+    "reason": "v3 does not serialize forming source triple, Pivot source cursor, consumed Segment identities, or established Pivot identity",
+    "phase6A1Action": "DO_NOT_UPGRADE_DURING_CONTRACT_FREEZE",
+    "phase6B1Action": "EXPLICIT_V3_TO_V4_MIGRATION_WITH_LOSSY_STATE_REJECTION",
+    "futureMinimumState": [
+      "formingSourceTriple",
+      "sourceCursor",
+      "consumedSegmentIds",
+      "establishedPivotIdentity"
+    ]
+  },
+  "claimBoundary": {
+    "allowedAfterProduction": "A causal parser for initial Pivot-zone establishment was implemented.",
+    "currentlyAllowed": "A causal establishment-only Pivot parser was implemented and unit/invariant-verified with synthetic fixtures; the frozen 571-bar development sample remains at two confirmed Segments and zero established Pivot.",
+    "forbidden": [
+      "Complete Pivot lifecycle implemented.",
+      "Pivot extension validated.",
+      "Complete Zhongshu dynamics reconstructed.",
+      "Pivot empirically validated."
+    ]
+  },
+  "nextPhase": "CT-Core-Parser-R1.0 Freeze + Verification Protocol Refactor",
+  "autoStartNextPhase": false
+}
