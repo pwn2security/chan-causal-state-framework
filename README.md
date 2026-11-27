@@ -1,5 +1,7 @@
 # Hierarchical Hybrid State-Space Framework for Chan Theory (`CT-Core-Parser-R1.0.4`)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24580630.svg)](https://doi.org/10.5281/zenodo.24580630)
+
 Companion code, frozen rule contracts, offline synthetic verification suite, and diagnostic scripts for:
 
 > **A Hierarchical Hybrid State-Space Framework for Financial Market Structure Analysis Based on Chan Theory**
@@ -45,11 +47,11 @@ This runs six offline verification checks on deterministic synthetic OHLC stream
 
 ## Reproducing Empirical Market Diagnostics
 
-See [`data/README.md`](data/README.md) to acquire the 14 fixed 1-minute windows from official Binance Vision archives and verify their SHA-256 digests via `python data/verify_hashes.py`. Once verified, the scripts in `experiments/` reproduce:
-- **Exp 1**: Shuffled-return and 60-substep GBM null-model Monte Carlo benchmarks (12 windows $\times$ 50 paths $\times$ 2 nulls).
-- **Exp 2**: Controlled three-tier audit-overhead scaling ablation ($N = 120$ to $5{,}000$).
-- **Exp 3**: Cross-implementation Stroke-spacing counterfactual against `Vespa314/chan.py` across 14 windows.
-- **Exp 4**: Downstream look-ahead distortion across $t_{\mathrm{event}}$, $t_{\mathrm{native}}$, and $t_{\mathrm{emit}}$ over horizons $h \in \{5, 15, 30, 60\}$ min.
+See [`data/README.md`](data/README.md) to acquire the 14 fixed 1-minute windows from official Binance Vision archives and verify their SHA-256 digests via `python data/verify_hashes.py`. Once verified, the scripts in `experiments/` reproduce (leaving the frozen `CT-Core-Parser-R1.0.4` core strictly unmodified):
+- **Exp 1 (`exp1_null_model.mjs`, `exp1_null_model_stats.py`, `exp1_v22_discretization.mjs`, `exp1_v22_discretization_stats.py`)**: Shuffled-return, continuous-precision 60-substep GBM, and tick-quantized 60-substep GBM null-model Monte Carlo benchmarks (12 windows $\times$ 50 paths $\times$ 3 nulls = 1,800 trajectories), plus flat-bar/equal-bound microstructure and calendar-date-grouped robustness checks.
+- **Exp 2 (`exp2_hashing_ablation.mjs`)**: Controlled three-tier audit-overhead scaling ablation ($N = 120$ to $5{,}000$) verifying bit-for-bit identical sealed $K/F/B/S/Z$ outputs.
+- **Exp 3 (`exp3_internal_runner.mjs`, `exp3_r7_spacing_counterfactual.py`, `exp3_v22_varB_runner.mjs`, `exp3_v22_cf4_match.py`)**: Cross-implementation Stroke-spacing (`CF-1`–`CF-3`) and combined spacing + Variant-B endpoint-guard (`CF-4`: $m=4$ + $G_{\mathrm{extreme}}$ off) counterfactuals against `Vespa314/chan.py` across 14 windows.
+- **Exp 4 (`exp4_downstream_lookahead.py`, `exp4_v22_robustness.py`)**: Downstream look-ahead distortion across $t_{\mathrm{event}}$, $t_{\mathrm{native}}$, and $t_{\mathrm{emit}}$ over horizons $h \in \{5, 15, 30, 60\}$ min, supplemented with within-window Bartlett-kernel Newey–West HAC $t$-tests, strictly non-overlapping subsamples, and pre-emission pullback decomposition.
 
 ## License
 

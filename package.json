@@ -1,6 +1,6 @@
 {
   "name": "chan-causal-state-framework",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "description": "Auditable causal hybrid state-space parsing prototype for Chan Theory (Physica A companion artifact).",
   "license": "MIT",

@@ -2,11 +2,12 @@ cff-version: 1.2.0
 message: "If you use this parser prototype, rule contracts, or validation scripts, please cite the accompanying article."
 type: software
 title: "A Hierarchical Hybrid State-Space Framework for Financial Market Structure Analysis Based on Chan Theory (Companion Code & Verification Suite)"
-version: "1.0.4"
+version: "1.0.5"
 date-released: "2026-11-27"
 license: MIT
+doi: "10.5281/zenodo.24580630"
 repository-code: "https://github.com/pwn2security/chan-causal-state-framework"
-url: "https://github.com/pwn2security/chan-causal-state-framework"
+url: "https://doi.org/10.5281/zenodo.24580630"
 authors:
   - family-names: Wang
     given-names: Yuting
