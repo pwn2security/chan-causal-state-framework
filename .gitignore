@@ -9,3 +9,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 mpl-cache/
+.mpl-cache/
+local_data/
+figures/output/

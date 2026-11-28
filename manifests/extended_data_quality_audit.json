@@ -1,0 +1,822 @@
+{
+  "protocolId": "CT-R8-ExtendedHorizon-CrossFreq-Null-v1.0.0",
+  "generatedAtUtc": "2026-11-27T15:21:43Z",
+  "arm1_1m_48h": [
+    {
+      "windowId": "R8-ARM1-BTCUSDT-2026-05-19-48H-1M",
+      "symbol": "BTCUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 350,
+      "equalBoundPct": 12.157,
+      "maxAbsCloseRetPct": 0.6174,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 6.2821
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 12.6389
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-ETHUSDT-2026-05-19-48H-1M",
+      "symbol": "ETHUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 262,
+      "equalBoundPct": 9.1004,
+      "maxAbsCloseRetPct": 0.7794,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 5.2564
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 9.3056
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-XAUUSDT-2026-05-19-48H-1M",
+      "symbol": "XAUUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 189,
+      "equalBoundPct": 6.5648,
+      "maxAbsCloseRetPct": 0.4653,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 4.2308
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 3.3333
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-SPYUSDT-2026-05-19-48H-1M",
+      "symbol": "SPYUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 32,
+      "zeroRangeBars": 188,
+      "zeroRangePct": 6.5278,
+      "equalBoundPairs": 428,
+      "equalBoundPct": 14.8663,
+      "maxAbsCloseRetPct": 0.2666,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.5128,
+          "zeroVolBars": 0,
+          "equalBoundPct": 7.4359
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 9.4444,
+          "zeroVolBars": 22,
+          "equalBoundPct": 16.5278
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-BTCUSDT-2026-06-16-48H-1M",
+      "symbol": "BTCUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 212,
+      "equalBoundPct": 7.3637,
+      "maxAbsCloseRetPct": 0.9897,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 3.0769
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 8.4028
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-ETHUSDT-2026-06-16-48H-1M",
+      "symbol": "ETHUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 129,
+      "equalBoundPct": 4.4807,
+      "maxAbsCloseRetPct": 1.2368,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 2.6923
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 5.2083
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-XAUUSDT-2026-06-16-48H-1M",
+      "symbol": "XAUUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 197,
+      "equalBoundPct": 6.8427,
+      "maxAbsCloseRetPct": 0.6988,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 4.8718
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 4.5139
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-SPYUSDT-2026-06-16-48H-1M",
+      "symbol": "SPYUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 5,
+      "zeroRangeBars": 155,
+      "zeroRangePct": 5.3819,
+      "equalBoundPairs": 670,
+      "equalBoundPct": 23.272,
+      "maxAbsCloseRetPct": 0.4274,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 6.0256
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 7.5,
+          "zeroVolBars": 3,
+          "equalBoundPct": 32.5
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-BTCUSDT-2026-07-21-48H-1M",
+      "symbol": "BTCUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 345,
+      "equalBoundPct": 11.9833,
+      "maxAbsCloseRetPct": 0.6586,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 8.2051
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 11.9444
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-ETHUSDT-2026-07-21-48H-1M",
+      "symbol": "ETHUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 233,
+      "equalBoundPct": 8.0931,
+      "maxAbsCloseRetPct": 0.6156,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 4.359
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 7.9861
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-XAUUSDT-2026-07-21-48H-1M",
+      "symbol": "XAUUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 245,
+      "equalBoundPct": 8.5099,
+      "maxAbsCloseRetPct": 0.2572,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 5.5128
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 6.3889
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-SPYUSDT-2026-07-21-48H-1M",
+      "symbol": "SPYUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 72,
+      "zeroRangeBars": 390,
+      "zeroRangePct": 13.5417,
+      "equalBoundPairs": 596,
+      "equalBoundPct": 20.7016,
+      "maxAbsCloseRetPct": 0.1313,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 6.0256,
+          "zeroVolBars": 7,
+          "equalBoundPct": 12.6923
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 15.2778,
+          "zeroVolBars": 41,
+          "equalBoundPct": 21.9444
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-BTCUSDT-2026-08-18-48H-1M",
+      "symbol": "BTCUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 731,
+      "equalBoundPct": 25.3908,
+      "maxAbsCloseRetPct": 4.0334,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 12.1795
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 32.0833
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-ETHUSDT-2026-08-18-48H-1M",
+      "symbol": "ETHUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 425,
+      "equalBoundPct": 14.7621,
+      "maxAbsCloseRetPct": 3.5364,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 8.4615
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 17.7778
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-XAUUSDT-2026-08-18-48H-1M",
+      "symbol": "XAUUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 143,
+      "equalBoundPct": 4.967,
+      "maxAbsCloseRetPct": 0.2729,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 2.4359
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 5.0694
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-SPYUSDT-2026-08-18-48H-1M",
+      "symbol": "SPYUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 24,
+      "zeroRangeBars": 267,
+      "zeroRangePct": 9.2708,
+      "equalBoundPairs": 841,
+      "equalBoundPct": 29.2115,
+      "maxAbsCloseRetPct": 0.131,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 1.4103,
+          "zeroVolBars": 0,
+          "equalBoundPct": 12.1795
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 10.9028,
+          "zeroVolBars": 13,
+          "equalBoundPct": 32.0833
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-BTCUSDT-2026-09-15-48H-1M",
+      "symbol": "BTCUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 236,
+      "equalBoundPct": 8.1973,
+      "maxAbsCloseRetPct": 0.4844,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 2.5641
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 11.5278
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-ETHUSDT-2026-09-15-48H-1M",
+      "symbol": "ETHUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 150,
+      "equalBoundPct": 5.2101,
+      "maxAbsCloseRetPct": 0.6254,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 2.0513
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 7.0139
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-XAUUSDT-2026-09-15-48H-1M",
+      "symbol": "XAUUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 1,
+      "zeroRangePct": 0.0347,
+      "equalBoundPairs": 210,
+      "equalBoundPct": 7.2942,
+      "maxAbsCloseRetPct": 0.4903,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 4.6154
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 4.9306
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-SPYUSDT-2026-09-15-48H-1M",
+      "symbol": "SPYUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 16,
+      "zeroRangeBars": 220,
+      "zeroRangePct": 7.6389,
+      "equalBoundPairs": 1111,
+      "equalBoundPct": 38.5898,
+      "maxAbsCloseRetPct": 0.1531,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.641,
+          "zeroVolBars": 0,
+          "equalBoundPct": 19.4872
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 9.2361,
+          "zeroVolBars": 13,
+          "equalBoundPct": 41.3889
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-BTCUSDT-2026-10-20-48H-1M",
+      "symbol": "BTCUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 313,
+      "equalBoundPct": 10.8718,
+      "maxAbsCloseRetPct": 0.4175,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 7.3077
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 12.2917
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-ETHUSDT-2026-10-20-48H-1M",
+      "symbol": "ETHUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 203,
+      "equalBoundPct": 7.0511,
+      "maxAbsCloseRetPct": 0.5848,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 4.359
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 7.7778
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-XAUUSDT-2026-10-20-48H-1M",
+      "symbol": "XAUUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 299,
+      "equalBoundPct": 10.3856,
+      "maxAbsCloseRetPct": 0.2297,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 7.3077
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 5.8333
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM1-SPYUSDT-2026-10-20-48H-1M",
+      "symbol": "SPYUSDT",
+      "interval": "1m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 5,
+      "zeroRangeBars": 155,
+      "zeroRangePct": 5.3819,
+      "equalBoundPairs": 772,
+      "equalBoundPct": 26.8149,
+      "maxAbsCloseRetPct": 0.1866,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 2.0513,
+          "zeroVolBars": 2,
+          "equalBoundPct": 15.1282
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 6.8056,
+          "zeroVolBars": 2,
+          "equalBoundPct": 28.6806
+        }
+      }
+    }
+  ],
+  "arm2_15m_30d": [
+    {
+      "windowId": "R8-ARM2-BTCUSDT-2026-07-30D-15M",
+      "symbol": "BTCUSDT",
+      "interval": "15m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 50,
+      "equalBoundPct": 1.7367,
+      "maxAbsCloseRetPct": 1.1985,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 0.8974
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 2.0139
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM2-ETHUSDT-2026-07-30D-15M",
+      "symbol": "ETHUSDT",
+      "interval": "15m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 21,
+      "equalBoundPct": 0.7294,
+      "maxAbsCloseRetPct": 1.9735,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 0.7692
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 0.5556
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM2-XAUUSDT-2026-07-30D-15M",
+      "symbol": "XAUUSDT",
+      "interval": "15m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 111,
+      "equalBoundPct": 3.8555,
+      "maxAbsCloseRetPct": 1.6628,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 2.1795
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 4.5139
+        }
+      }
+    },
+    {
+      "windowId": "R8-ARM2-SPYUSDT-2026-07-30D-15M",
+      "symbol": "SPYUSDT",
+      "interval": "15m",
+      "barCount": 2880,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 151,
+      "equalBoundPct": 5.2449,
+      "maxAbsCloseRetPct": 0.6158,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 780,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 3.0769
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 1440,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 6.1806
+        }
+      }
+    }
+  ],
+  "scaling_contiguous": [
+    {
+      "windowId": "R8-SCALING-BTCUSDT-2026-07-01-10000-1M",
+      "symbol": "BTCUSDT",
+      "interval": "1m",
+      "barCount": 10000,
+      "missingSteps": 0,
+      "ohlcViolations": 0,
+      "zeroVolumeBars": 0,
+      "zeroRangeBars": 0,
+      "zeroRangePct": 0.0,
+      "equalBoundPairs": 1002,
+      "equalBoundPct": 10.021,
+      "maxAbsCloseRetPct": 0.7716,
+      "sessionBreakdown": {
+        "nyse_1330_2000_utc": {
+          "bars": 2730,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 6.8864
+        },
+        "offhours_0000_1200_utc": {
+          "bars": 5040,
+          "zeroRangePct": 0.0,
+          "zeroVolBars": 0,
+          "equalBoundPct": 10.4365
+        }
+      }
+    }
+  ]
+}

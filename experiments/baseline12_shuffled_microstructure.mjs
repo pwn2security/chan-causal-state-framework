@@ -3,7 +3,7 @@
  * Reproduces exact zero-range flat-bar share (Zero%: H_t == L_t) and adjacent
  * equal-bound share (EqB%: H_t == H_{t-1} || L_t == L_{t-1}) across the 600
  * shuffled-return OHLC surrogates (12 fixed windows x 50 paths, seed 20261127)
- * using the identical mulberry32 PRNG and log-ratio shuffle as exp1_null_model.mjs.
+ * using the identical mulberry32 PRNG and log-ratio shuffle as baseline12_null_model.mjs.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -112,7 +112,7 @@ for (const sym of [...bySymbol.keys()].sort()) {
 }
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
-const outPath = path.join(OUT_DIR, 'exp1_v24_shuffled_microstructure.json');
+const outPath = path.join(OUT_DIR, 'baseline12_shuffled_microstructure.json');
 fs.writeFileSync(outPath, JSON.stringify({
   schemaVersion: 'PhysicaA-Exp1-ShuffledMicrostructure-v1.0',
   seed: BASE_SEED,

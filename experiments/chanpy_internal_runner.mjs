@@ -137,7 +137,7 @@ async function main() {
       result[label][wid] = extractComparable(core, cfg, bars, wid, label);
     }
   }
-  const outPath = path.join(OUT_DIR, 'exp3_internal_projections.json');
+  const outPath = path.join(OUT_DIR, 'chanpy_internal_projections.json');
   fs.writeFileSync(outPath, JSON.stringify(result) + '\n', 'utf8');
   console.log('Saved internal m2 & m4 projections for 14 windows:', outPath);
 }

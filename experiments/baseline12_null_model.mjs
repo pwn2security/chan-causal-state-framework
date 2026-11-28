@@ -239,7 +239,7 @@ if (!isMainThread) {
 
   const records = resultsByWindow.flatMap(r => r.rows);
   const spotChecks = resultsByWindow.flatMap(r => r.spotChecks);
-  const outPath = path.join(OUT_DIR, 'exp1_null_model_raw.json');
+  const outPath = path.join(OUT_DIR, 'baseline12_null_model_raw.json');
   fs.writeFileSync(outPath, JSON.stringify({
     schemaVersion: 'PhysicaA-Exp1-NullModel-v1.1',
     generatedAtUtc: new Date().toISOString(),

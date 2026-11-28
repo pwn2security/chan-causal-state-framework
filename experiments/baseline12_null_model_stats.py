@@ -12,7 +12,7 @@ import numpy as np
 from scipy import stats
 
 OUT_DIR = Path(os.environ.get("CT_RESULTS_DIR", "./results"))
-RAW_PATH = OUT_DIR / "exp1_null_model_raw.json"
+RAW_PATH = OUT_DIR / "baseline12_null_model_raw.json"
 
 METRICS = [
     ("K_over_N", "K/N (compression)", 100.0),
@@ -125,7 +125,7 @@ def main():
                 "Z_total": int(sum(r["Z"] for r in sub)),
             }
 
-    out_path = OUT_DIR / "exp1_null_model_stats.json"
+    out_path = OUT_DIR / "baseline12_null_model_stats.json"
     out_path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     print(f"\nSaved: {out_path}")
 

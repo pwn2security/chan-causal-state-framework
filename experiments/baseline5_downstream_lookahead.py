@@ -209,7 +209,7 @@ def main():
             layer_out["by_horizon"][str(h)] = rec
         summary["layers"][layer] = layer_out
 
-    out_path = OUT_DIR / "exp4_downstream_lookahead.json"
+    out_path = OUT_DIR / "baseline5_downstream_lookahead.json"
     out_path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     print(f"\nSaved: {out_path}\n")
 

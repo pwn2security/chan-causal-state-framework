@@ -167,6 +167,6 @@ if (totals.internal_m2_varB.K !== 6759 || totals.internal_m2_varB.F !== 3055 ||
 }
 console.log('EXACT BIT-FOR-BIT MATCH WITH FROZEN R5 VARIANT B VERIFIED!');
 
-const outPath = path.join(OUT_DIR, 'exp3_v22_varB_projections.json');
+const outPath = path.join(OUT_DIR, 'chanpy_variantB_projections.json');
 fs.writeFileSync(outPath, JSON.stringify({ totals, ...result }) + '\n', 'utf8');
 console.log('Saved:', outPath);

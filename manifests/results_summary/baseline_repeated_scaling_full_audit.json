@@ -1,0 +1,482 @@
+{
+  "schemaVersion": "RV2-E5X-Scaling-v1.0",
+  "formalRunId": "E5-X-R2-20260922T005351Z",
+  "experiment": "E5-X",
+  "status": "PARTIAL",
+  "startedAt": "2026-09-22T00:53:51.358Z",
+  "endedAt": "2026-09-22T01:44:47.756Z",
+  "elapsedMs": 3056398,
+  "developmentSmoke": false,
+  "publishable": false,
+  "baseDataset": {
+    "id": "BTCUSDT-2025-01-02-1s-derived-720",
+    "path": "<local_archive>/BTCUSDT-2025-01-02-1s-derived-720.json",
+    "sha256": "23f63b2edd9c5af1badaaf8f95e96af0734e944bdaace38086df8f31d21f2b4c"
+  },
+  "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+  "workloadDescription": "Repeat the frozen 720-bar OHLC path with strictly increasing one-minute timestamps and indices; this is a synthetic computational workload, not market evidence.",
+  "scalingPoints": [
+    {
+      "bars": 120,
+      "status": "COMPLETED",
+      "optional": false,
+      "warmupRuns": 1,
+      "measuredRuns": 2,
+      "meanTotalRuntimeMs": 661.6560499999999,
+      "meanBarsPerSecond": 181.37368777561062,
+      "meanPerBarMs": 5.495789166666666,
+      "p50Ms": 4.256599999999992,
+      "p95Ms": 19.05026,
+      "p99Ms": 26.256152499999956,
+      "maxPeakHeapBytes": 37534504,
+      "maxPeakRssBytes": 97091584,
+      "meanSnapshotSerializedBytes": 1452192,
+      "meanSnapshotSerializationMs": 113.6325,
+      "finalCounts": {
+        "K": 88,
+        "F": 36,
+        "B": 16,
+        "S": 0,
+        "Z": 0
+      }
+    },
+    {
+      "bars": 500,
+      "status": "COMPLETED",
+      "optional": false,
+      "warmupRuns": 1,
+      "measuredRuns": 2,
+      "meanTotalRuntimeMs": 18313.8979,
+      "meanBarsPerSecond": 27.301791696637572,
+      "meanPerBarMs": 36.620740400000024,
+      "p50Ms": 15.135800000000131,
+      "p95Ms": 59.81659749999994,
+      "p99Ms": 817.5485204999998,
+      "maxPeakHeapBytes": 286836472,
+      "maxPeakRssBytes": 416198656,
+      "meanSnapshotSerializedBytes": 5265973,
+      "meanSnapshotSerializationMs": 366.4213000000018,
+      "finalCounts": {
+        "K": 348,
+        "F": 152,
+        "B": 60,
+        "S": 3,
+        "Z": 1
+      }
+    },
+    {
+      "bars": 1000,
+      "status": "COMPLETED",
+      "optional": false,
+      "warmupRuns": 1,
+      "measuredRuns": 2,
+      "meanTotalRuntimeMs": 170348.91085,
+      "meanBarsPerSecond": 5.870513252264443,
+      "meanPerBarMs": 170.34252385000008,
+      "p50Ms": 29.68105000000287,
+      "p95Ms": 879.1623524999997,
+      "p99Ms": 4076.932076999999,
+      "maxPeakHeapBytes": 499344328,
+      "maxPeakRssBytes": 668069888,
+      "meanSnapshotSerializedBytes": 8807204,
+      "meanSnapshotSerializationMs": 667.4568499999878,
+      "finalCounts": {
+        "K": 709,
+        "F": 309,
+        "B": 124,
+        "S": 7,
+        "Z": 1
+      }
+    },
+    {
+      "bars": 2000,
+      "status": "COMPLETED",
+      "optional": false,
+      "warmupRuns": 1,
+      "measuredRuns": 2,
+      "meanTotalRuntimeMs": 424475.03695,
+      "meanBarsPerSecond": 4.711710153477934,
+      "meanPerBarMs": 212.23147634999947,
+      "p50Ms": 58.534499999994296,
+      "p95Ms": 1070.0267999999726,
+      "p99Ms": 4281.983793499987,
+      "maxPeakHeapBytes": 541101976,
+      "maxPeakRssBytes": 704462848,
+      "meanSnapshotSerializedBytes": 17829312,
+      "meanSnapshotSerializationMs": 1344.171000000002,
+      "finalCounts": {
+        "K": 1417,
+        "F": 619,
+        "B": 249,
+        "S": 11,
+        "Z": 1
+      }
+    },
+    {
+      "bars": 5000,
+      "status": "RESOURCE_LIMIT_TIMEOUT",
+      "optional": false,
+      "failedKind": "warmup",
+      "worker": {
+        "code": null,
+        "signal": "SIGKILL",
+        "timedOut": true,
+        "stdout": "E5X_WORKER_PROGRESS n=5000 kind=warmup run=1 bars=500/5000 elapsedMs=18123\nE5X_WORKER_PROGRESS n=5000 kind=warmup run=1 bars=1000/5000 elapsedMs=167622\nE5X_WORKER_PROGRESS n=5000 kind=warmup run=1 bars=1500/5000 elapsedMs=286668\nE5X_WORKER_PROGRESS n=5000 kind=warmup run=1 bars=2000/5000 elapsedMs=420165\n",
+        "stderr": "",
+        "elapsedMs": 600041
+      }
+    },
+    {
+      "bars": 10000,
+      "status": "RESOURCE_LIMIT_TIMEOUT",
+      "optional": false,
+      "failedKind": "warmup",
+      "worker": {
+        "code": null,
+        "signal": "SIGKILL",
+        "timedOut": true,
+        "stdout": "E5X_WORKER_PROGRESS n=10000 kind=warmup run=1 bars=500/10000 elapsedMs=17150\nE5X_WORKER_PROGRESS n=10000 kind=warmup run=1 bars=1000/10000 elapsedMs=167403\nE5X_WORKER_PROGRESS n=10000 kind=warmup run=1 bars=1500/10000 elapsedMs=288280\nE5X_WORKER_PROGRESS n=10000 kind=warmup run=1 bars=2000/10000 elapsedMs=423708\n",
+        "stderr": "",
+        "elapsedMs": 600045
+      }
+    },
+    {
+      "bars": 25000,
+      "status": "NOT_RUN_RESOURCE_POLICY",
+      "optional": true,
+      "reason": "Run 25000/50000 only if the completed 10000-bar mean runtime is below 300000 ms, peak RSS is below 50% of host RAM, and mean snapshot bytes is below 2000000000."
+    },
+    {
+      "bars": 50000,
+      "status": "NOT_RUN_RESOURCE_POLICY",
+      "optional": true,
+      "reason": "Run 25000/50000 only if the completed 10000-bar mean runtime is below 300000 ms, peak RSS is below 50% of host RAM, and mean snapshot bytes is below 2000000000."
+    }
+  ],
+  "runRows": [
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 120,
+      "kind": "warmup",
+      "runIndex": 1,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 662.7334999999999,
+      "barsPerSecond": 181.06825745190187,
+      "perBarMeanMs": null,
+      "p50Ms": null,
+      "p95Ms": null,
+      "p99Ms": null,
+      "peakHeapBytes": 37533392,
+      "peakRssBytes": 96985088,
+      "snapshotSerializedBytes": 1452192,
+      "snapshotSerializationMs": 116.58569999999997,
+      "finalCounts": {
+        "K": 88,
+        "F": 36,
+        "B": 16,
+        "S": 0,
+        "Z": 0
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 120,
+      "kind": "measured",
+      "runIndex": 1,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 666.7085999999999,
+      "barsPerSecond": 179.98867871210902,
+      "perBarMeanMs": 5.53803,
+      "p50Ms": 4.256450000000001,
+      "p95Ms": 19.562280000000037,
+      "p99Ms": 25.94155399999998,
+      "peakHeapBytes": 37534504,
+      "peakRssBytes": 97091584,
+      "snapshotSerializedBytes": 1452192,
+      "snapshotSerializationMs": 114.80849999999998,
+      "finalCounts": {
+        "K": 88,
+        "F": 36,
+        "B": 16,
+        "S": 0,
+        "Z": 0
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 120,
+      "kind": "measured",
+      "runIndex": 2,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 656.6034999999999,
+      "barsPerSecond": 182.75869683911222,
+      "perBarMeanMs": 5.453548333333331,
+      "p50Ms": 4.2567499999999825,
+      "p95Ms": 18.53823999999997,
+      "p99Ms": 26.570750999999937,
+      "peakHeapBytes": 27651096,
+      "peakRssBytes": 91533312,
+      "snapshotSerializedBytes": 1452192,
+      "snapshotSerializationMs": 112.4565,
+      "finalCounts": {
+        "K": 88,
+        "F": 36,
+        "B": 16,
+        "S": 0,
+        "Z": 0
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 500,
+      "kind": "warmup",
+      "runIndex": 1,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 18657.961,
+      "barsPerSecond": 26.79821230197662,
+      "perBarMeanMs": null,
+      "p50Ms": null,
+      "p95Ms": null,
+      "p99Ms": null,
+      "peakHeapBytes": 258250232,
+      "peakRssBytes": 387489792,
+      "snapshotSerializedBytes": 5265973,
+      "snapshotSerializationMs": 369.53930000000037,
+      "finalCounts": {
+        "K": 348,
+        "F": 152,
+        "B": 60,
+        "S": 3,
+        "Z": 1
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 500,
+      "kind": "measured",
+      "runIndex": 1,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 18352.5364,
+      "barsPerSecond": 27.24419061770666,
+      "perBarMeanMs": 36.69807880000002,
+      "p50Ms": 15.14650000000006,
+      "p95Ms": 59.09116499999937,
+      "p99Ms": 806.9792129999992,
+      "peakHeapBytes": 242264144,
+      "peakRssBytes": 383991808,
+      "snapshotSerializedBytes": 5265973,
+      "snapshotSerializationMs": 368.5688000000009,
+      "finalCounts": {
+        "K": 348,
+        "F": 152,
+        "B": 60,
+        "S": 3,
+        "Z": 1
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 500,
+      "kind": "measured",
+      "runIndex": 2,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 18275.2594,
+      "barsPerSecond": 27.359392775568484,
+      "perBarMeanMs": 36.54340200000003,
+      "p50Ms": 15.125100000000202,
+      "p95Ms": 60.54203000000052,
+      "p99Ms": 828.1178280000005,
+      "peakHeapBytes": 286836472,
+      "peakRssBytes": 416198656,
+      "snapshotSerializedBytes": 5265973,
+      "snapshotSerializationMs": 364.27380000000267,
+      "finalCounts": {
+        "K": 348,
+        "F": 152,
+        "B": 60,
+        "S": 3,
+        "Z": 1
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 1000,
+      "kind": "warmup",
+      "runIndex": 1,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 171320.4717,
+      "barsPerSecond": 5.837014047866412,
+      "perBarMeanMs": null,
+      "p50Ms": null,
+      "p95Ms": null,
+      "p99Ms": null,
+      "peakHeapBytes": 499334056,
+      "peakRssBytes": 666996736,
+      "snapshotSerializedBytes": 8807204,
+      "snapshotSerializationMs": 641.4802999999956,
+      "finalCounts": {
+        "K": 709,
+        "F": 309,
+        "B": 124,
+        "S": 7,
+        "Z": 1
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 1000,
+      "kind": "measured",
+      "runIndex": 1,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 171364.416,
+      "barsPerSecond": 5.835517217296735,
+      "perBarMeanMs": 171.3578665,
+      "p50Ms": 30.180750000003172,
+      "p95Ms": 878.0776749999984,
+      "p99Ms": 4090.1643529999956,
+      "peakHeapBytes": 499344328,
+      "peakRssBytes": 668069888,
+      "snapshotSerializedBytes": 8807204,
+      "snapshotSerializationMs": 695.6639999999898,
+      "finalCounts": {
+        "K": 709,
+        "F": 309,
+        "B": 124,
+        "S": 7,
+        "Z": 1
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 1000,
+      "kind": "measured",
+      "runIndex": 2,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 169333.4057,
+      "barsPerSecond": 5.905509287232152,
+      "perBarMeanMs": 169.32718120000015,
+      "p50Ms": 29.181350000002567,
+      "p95Ms": 880.2470300000009,
+      "p99Ms": 4063.6998010000025,
+      "peakHeapBytes": 433488640,
+      "peakRssBytes": 608231424,
+      "snapshotSerializedBytes": 8807204,
+      "snapshotSerializationMs": 639.2496999999858,
+      "finalCounts": {
+        "K": 709,
+        "F": 309,
+        "B": 124,
+        "S": 7,
+        "Z": 1
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 2000,
+      "kind": "warmup",
+      "runIndex": 1,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 426547.69519999996,
+      "barsPerSecond": 4.688807424131641,
+      "perBarMeanMs": null,
+      "p50Ms": null,
+      "p95Ms": null,
+      "p99Ms": null,
+      "peakHeapBytes": 542211936,
+      "peakRssBytes": 705024000,
+      "snapshotSerializedBytes": 17829312,
+      "snapshotSerializationMs": 1338.975299999991,
+      "finalCounts": {
+        "K": 1417,
+        "F": 619,
+        "B": 249,
+        "S": 11,
+        "Z": 1
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 2000,
+      "kind": "measured",
+      "runIndex": 1,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 425023.7019,
+      "barsPerSecond": 4.7056199243932095,
+      "perBarMeanMs": 212.5054445999994,
+      "p50Ms": 58.54959999998391,
+      "p95Ms": 1068.3543849999664,
+      "p99Ms": 4307.344220999982,
+      "peakHeapBytes": 534921656,
+      "peakRssBytes": 680607744,
+      "snapshotSerializedBytes": 17829312,
+      "snapshotSerializationMs": 1334.9432999999844,
+      "finalCounts": {
+        "K": 1417,
+        "F": 619,
+        "B": 249,
+        "S": 11,
+        "Z": 1
+      },
+      "productionCoreModified": false
+    },
+    {
+      "schemaVersion": "RV2-E5X-Worker-Result-v1.0",
+      "n": 2000,
+      "kind": "measured",
+      "runIndex": 2,
+      "workloadVersion": "RV2-Deterministic-Repeated-Window-v1.0",
+      "totalRuntimeMs": 423926.372,
+      "barsPerSecond": 4.717800382562659,
+      "perBarMeanMs": 211.95750809999956,
+      "p50Ms": 58.51940000000468,
+      "p95Ms": 1071.6992149999787,
+      "p99Ms": 4256.6233659999925,
+      "peakHeapBytes": 541101976,
+      "peakRssBytes": 704462848,
+      "snapshotSerializedBytes": 17829312,
+      "snapshotSerializationMs": 1353.3987000000197,
+      "finalCounts": {
+        "K": 1417,
+        "F": 619,
+        "B": 249,
+        "S": 11,
+        "Z": 1
+      },
+      "productionCoreModified": false
+    }
+  ],
+  "claimBoundary": "Empirical scaling on the recorded machine and deterministic workload only; no O(1), constant-memory, linear-complexity, or hardware-independent claim.",
+  "optionalExecutionPolicy": "Run 25000/50000 only if the completed 10000-bar mean runtime is below 300000 ms, peak RSS is below 50% of host RAM, and mean snapshot bytes is below 2000000000.",
+  "figures": {
+    "runtime": {
+      "pdf": "<local_archive>/E5-X-R2-20260922T005351Z-runtime-vs-n.pdf",
+      "png": "<local_archive>/E5-X-R2-20260922T005351Z-runtime-vs-n.png",
+      "dpi": 300
+    },
+    "throughput": {
+      "pdf": "<local_archive>/E5-X-R2-20260922T005351Z-throughput-vs-n.pdf",
+      "png": "<local_archive>/E5-X-R2-20260922T005351Z-throughput-vs-n.png",
+      "dpi": 300
+    },
+    "rss": {
+      "pdf": "<local_archive>/E5-X-R2-20260922T005351Z-rss-vs-n.pdf",
+      "png": "<local_archive>/E5-X-R2-20260922T005351Z-rss-vs-n.png",
+      "dpi": 300
+    },
+    "snapshot": {
+      "pdf": "<local_archive>/E5-X-R2-20260922T005351Z-snapshot-vs-n.pdf",
+      "png": "<local_archive>/E5-X-R2-20260922T005351Z-snapshot-vs-n.png",
+      "dpi": 300
+    }
+  }
+}

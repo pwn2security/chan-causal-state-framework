@@ -1,5 +1,5 @@
 """Exp 4 v24 Per-Window, Autocorrelation, and Volatility-Standardized Robustness (Table S12.2(b)-(c)):
-Extends exp4_v22_robustness.py with:
+Extends baseline5_overlap_robustness.py with:
   1. Same-family i.i.d. paired t-test p-values and within-window lag-1 autocorrelations (rho_1)
      explaining horizon-dependent Bartlett HAC variance behavior.
   2. Per-window Layer-B look-ahead breakdown at h = 5 min (n, 1-min return SD sigma_w, raw bps,
@@ -210,7 +210,7 @@ def main():
         )
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    out_path = OUT_DIR / "exp4_v24_per_window_standardized.json"
+    out_path = OUT_DIR / "baseline5_standardized_robustness.json"
     out_path.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     print(f"\nSaved {out_path}")
 

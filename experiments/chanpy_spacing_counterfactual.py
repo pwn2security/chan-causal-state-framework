@@ -16,7 +16,7 @@ import numpy as np
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
-ADAPTER_DIR = Path(os.environ.get("CT_R7_ADAPTER_DIR", str(SCRIPT_DIR / "r7_adapter")))
+ADAPTER_DIR = Path(os.environ.get("CT_R7_ADAPTER_DIR", str(SCRIPT_DIR / "chanpy_matcher")))
 CHANPY_ROOT = Path(os.environ.get("CT_CHANPY_ROOT", "./chan.py-main"))
 WINDOWS_DIR = Path(os.environ.get("CT_WINDOWS_DIR", "./local_windows"))
 MANIFEST_PATH = Path(os.environ.get("CT_MANIFEST_PATH", str(REPO_ROOT / "data" / "window_manifest.json")))
@@ -34,7 +34,7 @@ from Common.CEnum import AUTYPE, KL_TYPE, DATA_FIELD  # noqa: E402
 from Common.CTime import CTime  # noqa: E402
 from KLine.KLine_Unit import CKLine_Unit  # noqa: E402
 
-MAPPING_PATH = ADAPTER_DIR / "r7_semantic_mapping.json"
+MAPPING_PATH = ADAPTER_DIR / "semantic_mapping.json"
 if not MAPPING_PATH.exists():
     MAPPING_PATH = ADAPTER_DIR / "R7_SEMANTIC_MAPPING.json"
 R7_MAPPING = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
@@ -163,7 +163,7 @@ def aggregate_scenario(name: str, windows: list[dict], internal_by_win: dict, ex
 def main():
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     windows = [{"datasetId": w["windowId"], "instrument": w["instrument"]} for w in manifest["windows"]]
-    internal_all = json.loads((OUT_DIR / "exp3_internal_projections.json").read_text(encoding="utf-8"))
+    internal_all = json.loads((OUT_DIR / "chanpy_internal_projections.json").read_text(encoding="utf-8"))
     frozen_r7_layers = R7_MAPPING["frozenR7ReferenceSummary"]
 
     # Load frozen 14 window inputs
@@ -219,7 +219,7 @@ def main():
         )
         print(f"  {l}: frozen(nI={f_micro['internalEligibleCount']}, nE={f_micro['externalEligibleCount']}, cov={f_micro['uniqueCorrespondenceCoverage']*100:.2f}%) vs sandbox(nI={b_micro['internalCount']}, nE={b_micro['externalCount']}, cov={b_micro['microUniqueCoverage']*100:.2f}%)")
 
-    out_path = OUT_DIR / "exp3_spacing_counterfactual.json"
+    out_path = OUT_DIR / "chanpy_spacing_counterfactual.json"
     out_path.write_text(json.dumps({
         "schemaVersion": "PhysicaA-Exp3-SpacingCounterfactual-v1.0",
         "windowCount": len(windows),

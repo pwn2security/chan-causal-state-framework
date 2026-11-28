@@ -1,6 +1,6 @@
 """Exp 1 v22 Discretization & Correlation Diagnostics (Major 1B):
-Combines exp1_null_model_raw.json (Real, Shuffled, Continuous GBM) with
-exp1_v22_discretization.json (Real microstructure + Tick-Quantized GBM) to:
+Combines baseline12_null_model_raw.json (Real, Shuffled, Continuous GBM) with
+baseline12_tick_discretization.json (Real microstructure + Tick-Quantized GBM) to:
   1. Quantify exact zero-range flat-bar and adjacent equal-bound fractions per contract/window.
   2. Decompose the Real vs Continuous-GBM K/N gap into:
        (a) pure tick-size discretization (Continuous GBM -> Tick-Quantized GBM), and
@@ -20,8 +20,8 @@ OUT_DIR = Path(os.environ.get("CT_RESULTS_DIR", "./results"))
 
 
 def main():
-    raw1 = json.loads((OUT_DIR / "exp1_null_model_raw.json").read_text(encoding="utf-8"))
-    disc = json.loads((OUT_DIR / "exp1_v22_discretization.json").read_text(encoding="utf-8"))
+    raw1 = json.loads((OUT_DIR / "baseline12_null_model_raw.json").read_text(encoding="utf-8"))
+    disc = json.loads((OUT_DIR / "baseline12_tick_discretization.json").read_text(encoding="utf-8"))
 
     by_wm = defaultdict(list)
     for r in raw1["records"]:
@@ -162,7 +162,7 @@ def main():
         "byMonth": by_month,
         "overall": overall,
     }
-    out_path = OUT_DIR / "exp1_v22_discretization_stats.json"
+    out_path = OUT_DIR / "baseline12_tick_discretization_stats.json"
     out_path.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     print(f"Saved: {out_path}")
 

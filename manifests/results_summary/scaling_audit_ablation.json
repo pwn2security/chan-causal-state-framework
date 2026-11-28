@@ -1,0 +1,367 @@
+{
+  "schemaVersion": "PhysicaA-Exp2-AuditOverheadAblation-v1.1",
+  "generatedAtUtc": "2026-11-27T06:37:27.700Z",
+  "nodeVersion": "v24.19.0",
+  "parserVersion": "CT-Core-Parser-R1.0.4",
+  "frozenBaselineUntouched": true,
+  "frozenE5XReferenceSec": {
+    "120": 0.662,
+    "500": 18.314,
+    "1000": 170.349,
+    "2000": 424.475,
+    "5000": null,
+    "10000": null
+  },
+  "equivalenceAudit": [
+    {
+      "windowId": "R4-BTCUSDT-2026-07-FIXED-01",
+      "rows": 720,
+      "counts": {
+        "K": 480,
+        "F": 217,
+        "B": 79,
+        "S": 1,
+        "Z": 0
+      },
+      "fullAuditMs": 103302.42,
+      "noStepHashMs": 29502.62,
+      "auditHooksOffMs": 5587.34,
+      "speedupNoStepHash": 3.5,
+      "speedupAuditHooksOff": 18.49,
+      "exactStructureMatch": true,
+      "structureSha256": "8c704c17994c91b8f8cbe8031d20e687c3dc26b014be75057df8c4ad226d2f47"
+    },
+    {
+      "windowId": "R4-ETHUSDT-2026-07-FIXED-01",
+      "rows": 720,
+      "counts": {
+        "K": 509,
+        "F": 242,
+        "B": 84,
+        "S": 2,
+        "Z": 0
+      },
+      "fullAuditMs": 133836.47,
+      "noStepHashMs": 40072.88,
+      "auditHooksOffMs": 5250.28,
+      "speedupNoStepHash": 3.34,
+      "speedupAuditHooksOff": 25.49,
+      "exactStructureMatch": true,
+      "structureSha256": "06866b4ab7e2be4eec2e9b7ff6201e64f3fa9aafce0e5b561028528448d02674"
+    },
+    {
+      "windowId": "R4-XAUUSDT-2026-07-FIXED-01",
+      "rows": 720,
+      "counts": {
+        "K": 518,
+        "F": 228,
+        "B": 95,
+        "S": 0,
+        "Z": 0
+      },
+      "fullAuditMs": 85798.51,
+      "noStepHashMs": 23173.41,
+      "auditHooksOffMs": 3508.77,
+      "speedupNoStepHash": 3.7,
+      "speedupAuditHooksOff": 24.45,
+      "exactStructureMatch": true,
+      "structureSha256": "b7062297679fcbfeba347664e2a44b96aff76d94d7c0d983e204e5bf6eae416c"
+    },
+    {
+      "windowId": "R4-SPYUSDT-2026-07-FIXED-01",
+      "rows": 720,
+      "counts": {
+        "K": 468,
+        "F": 211,
+        "B": 73,
+        "S": 2,
+        "Z": 0
+      },
+      "fullAuditMs": 52576.71,
+      "noStepHashMs": 24230.62,
+      "auditHooksOffMs": 3620.02,
+      "speedupNoStepHash": 2.17,
+      "speedupAuditHooksOff": 14.52,
+      "exactStructureMatch": true,
+      "structureSha256": "b94bae052ba2e133aa9139fbe8011ba73121bda27481d194f343f0b35ee04a85"
+    }
+  ],
+  "scalingGrid": [
+    {
+      "bars": 120,
+      "modes": {
+        "full_audit": {
+          "measuredRuns": 3,
+          "meanTotalRuntimeMs": 619.953,
+          "meanTotalRuntimeSec": 0.62,
+          "meanBarsPerSecond": 193.611,
+          "meanPerBarMs": 5.166279,
+          "p50Ms": 3.9457,
+          "p95Ms": 17.114215,
+          "p99Ms": 25.631072,
+          "maxPeakHeapBytes": 259553816,
+          "maxPeakRssBytes": 439472128,
+          "counts": {
+            "K": 88,
+            "F": 36,
+            "B": 16,
+            "S": 0,
+            "Z": 0
+          },
+          "structureSha256": "89a6a6f357443e744fefc0eb8b2772e0142de5296bbb81dd153e819645b198d2"
+        },
+        "no_step_hash": {
+          "measuredRuns": 3,
+          "meanTotalRuntimeMs": 523.366,
+          "meanTotalRuntimeSec": 0.523,
+          "meanBarsPerSecond": 229.36,
+          "meanPerBarMs": 4.36138,
+          "p50Ms": 3.92535,
+          "p95Ms": 10.35375,
+          "p99Ms": 12.645113,
+          "maxPeakHeapBytes": 244426592,
+          "maxPeakRssBytes": 411742208,
+          "counts": {
+            "K": 88,
+            "F": 36,
+            "B": 16,
+            "S": 0,
+            "Z": 0
+          },
+          "structureSha256": "89a6a6f357443e744fefc0eb8b2772e0142de5296bbb81dd153e819645b198d2"
+        },
+        "audit_hooks_off": {
+          "measuredRuns": 5,
+          "meanTotalRuntimeMs": 87.489,
+          "meanTotalRuntimeSec": 0.087,
+          "meanBarsPerSecond": 1372.536,
+          "meanPerBarMs": 0.729079,
+          "p50Ms": 0.60155,
+          "p95Ms": 1.721475,
+          "p99Ms": 2.321607,
+          "maxPeakHeapBytes": 248840280,
+          "maxPeakRssBytes": 411598848,
+          "counts": {
+            "K": 88,
+            "F": 36,
+            "B": 16,
+            "S": 0,
+            "Z": 0
+          },
+          "structureSha256": "89a6a6f357443e744fefc0eb8b2772e0142de5296bbb81dd153e819645b198d2"
+        }
+      },
+      "allExecutedModesExactMatch": true
+    },
+    {
+      "bars": 500,
+      "modes": {
+        "full_audit": {
+          "measuredRuns": 2,
+          "meanTotalRuntimeMs": 18737.355,
+          "meanTotalRuntimeSec": 18.737,
+          "meanBarsPerSecond": 26.685,
+          "meanPerBarMs": 37.47471,
+          "p50Ms": 15.668725,
+          "p95Ms": 59.566085,
+          "p99Ms": 830.433646,
+          "maxPeakHeapBytes": 261230952,
+          "maxPeakRssBytes": 540434432,
+          "counts": {
+            "K": 348,
+            "F": 152,
+            "B": 60,
+            "S": 3,
+            "Z": 1
+          },
+          "structureSha256": "de235910dfcaa01fab60fcd6d9eaf7c6647422062a04e0e80c937b922c6ea38f"
+        },
+        "no_step_hash": {
+          "measuredRuns": 3,
+          "meanTotalRuntimeMs": 9715.231,
+          "meanTotalRuntimeSec": 9.715,
+          "meanBarsPerSecond": 51.466,
+          "meanPerBarMs": 19.430462,
+          "p50Ms": 15.13155,
+          "p95Ms": 57.640585,
+          "p99Ms": 127.311939,
+          "maxPeakHeapBytes": 229617736,
+          "maxPeakRssBytes": 471031808,
+          "counts": {
+            "K": 348,
+            "F": 152,
+            "B": 60,
+            "S": 3,
+            "Z": 1
+          },
+          "structureSha256": "de235910dfcaa01fab60fcd6d9eaf7c6647422062a04e0e80c937b922c6ea38f"
+        },
+        "audit_hooks_off": {
+          "measuredRuns": 5,
+          "meanTotalRuntimeMs": 1635.077,
+          "meanTotalRuntimeSec": 1.635,
+          "meanBarsPerSecond": 306.087,
+          "meanPerBarMs": 3.270155,
+          "p50Ms": 2.439,
+          "p95Ms": 7.869445,
+          "p99Ms": 22.590221,
+          "maxPeakHeapBytes": 234129040,
+          "maxPeakRssBytes": 462852096,
+          "counts": {
+            "K": 348,
+            "F": 152,
+            "B": 60,
+            "S": 3,
+            "Z": 1
+          },
+          "structureSha256": "de235910dfcaa01fab60fcd6d9eaf7c6647422062a04e0e80c937b922c6ea38f"
+        }
+      },
+      "allExecutedModesExactMatch": true
+    },
+    {
+      "bars": 1000,
+      "modes": {
+        "full_audit": {
+          "measuredRuns": 1,
+          "meanTotalRuntimeMs": 180522.994,
+          "meanTotalRuntimeSec": 180.523,
+          "meanBarsPerSecond": 5.539,
+          "meanPerBarMs": 180.522994,
+          "p50Ms": 31.9453,
+          "p95Ms": 940.57092,
+          "p99Ms": 4401.638889,
+          "maxPeakHeapBytes": 422768912,
+          "maxPeakRssBytes": 636514304,
+          "counts": {
+            "K": 709,
+            "F": 309,
+            "B": 124,
+            "S": 7,
+            "Z": 1
+          },
+          "structureSha256": "87da8eb781ff8ec7b6f563b64c5ef0a06b57913b980a40067123dfd9d260e338"
+        },
+        "no_step_hash": {
+          "measuredRuns": 2,
+          "meanTotalRuntimeMs": 54005.665,
+          "meanTotalRuntimeSec": 54.006,
+          "meanBarsPerSecond": 18.517,
+          "meanPerBarMs": 54.005665,
+          "p50Ms": 30.447125,
+          "p95Ms": 144.509148,
+          "p99Ms": 802.11199,
+          "maxPeakHeapBytes": 461517688,
+          "maxPeakRssBytes": 642134016,
+          "counts": {
+            "K": 709,
+            "F": 309,
+            "B": 124,
+            "S": 7,
+            "Z": 1
+          },
+          "structureSha256": "87da8eb781ff8ec7b6f563b64c5ef0a06b57913b980a40067123dfd9d260e338"
+        },
+        "audit_hooks_off": {
+          "measuredRuns": 3,
+          "meanTotalRuntimeMs": 8348.992,
+          "meanTotalRuntimeSec": 8.349,
+          "meanBarsPerSecond": 119.787,
+          "meanPerBarMs": 8.348992,
+          "p50Ms": 4.95875,
+          "p95Ms": 25.64626,
+          "p99Ms": 99.327896,
+          "maxPeakHeapBytes": 314093128,
+          "maxPeakRssBytes": 440848384,
+          "counts": {
+            "K": 709,
+            "F": 309,
+            "B": 124,
+            "S": 7,
+            "Z": 1
+          },
+          "structureSha256": "87da8eb781ff8ec7b6f563b64c5ef0a06b57913b980a40067123dfd9d260e338"
+        }
+      },
+      "allExecutedModesExactMatch": true
+    },
+    {
+      "bars": 2000,
+      "modes": {
+        "no_step_hash": {
+          "measuredRuns": 1,
+          "meanTotalRuntimeMs": 179652.041,
+          "meanTotalRuntimeSec": 179.652,
+          "meanBarsPerSecond": 11.133,
+          "meanPerBarMs": 89.82602,
+          "p50Ms": 62.962,
+          "p95Ms": 268.051385,
+          "p99Ms": 889.559833,
+          "maxPeakHeapBytes": 341838848,
+          "maxPeakRssBytes": 502013952,
+          "counts": {
+            "K": 1417,
+            "F": 619,
+            "B": 249,
+            "S": 11,
+            "Z": 1
+          },
+          "structureSha256": "627faf331963830267b88d3ebc5092cdb8118981c7f4474dd896859b6c04a4ac"
+        },
+        "audit_hooks_off": {
+          "measuredRuns": 2,
+          "meanTotalRuntimeMs": 27961.681,
+          "meanTotalRuntimeSec": 27.962,
+          "meanBarsPerSecond": 71.527,
+          "meanPerBarMs": 13.980841,
+          "p50Ms": 10.197575,
+          "p95Ms": 39.697407,
+          "p99Ms": 104.124046,
+          "maxPeakHeapBytes": 285830728,
+          "maxPeakRssBytes": 515567616,
+          "counts": {
+            "K": 1417,
+            "F": 619,
+            "B": 249,
+            "S": 11,
+            "Z": 1
+          },
+          "structureSha256": "627faf331963830267b88d3ebc5092cdb8118981c7f4474dd896859b6c04a4ac"
+        }
+      },
+      "allExecutedModesExactMatch": true
+    },
+    {
+      "bars": 5000,
+      "modes": {
+        "audit_hooks_off": {
+          "measuredRuns": 2,
+          "meanTotalRuntimeMs": 159128.508,
+          "meanTotalRuntimeSec": 159.129,
+          "meanBarsPerSecond": 31.421,
+          "meanPerBarMs": 31.825702,
+          "p50Ms": 26.949925,
+          "p95Ms": 84.934827,
+          "p99Ms": 156.709705,
+          "maxPeakHeapBytes": 370500376,
+          "maxPeakRssBytes": 548237312,
+          "counts": {
+            "K": 3553,
+            "F": 1556,
+            "B": 624,
+            "S": 27,
+            "Z": 1
+          },
+          "structureSha256": "8475f9f44b8c6d2fd42c21aba6b94f78abc2ebd74c5ee012e4b14259b113c567"
+        }
+      },
+      "allExecutedModesExactMatch": true
+    }
+  ],
+  "empiricalScalingExponents": {
+    "frozen_full_audit_120_2000": 2.379,
+    "no_step_hash_120_2000": 2.106,
+    "audit_hooks_off_120_5000": 2.023,
+    "audit_hooks_off_500_5000": 1.962
+  }
+}

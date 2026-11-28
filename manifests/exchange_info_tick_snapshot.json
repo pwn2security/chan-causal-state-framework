@@ -1,0 +1,62 @@
+{
+  "status": "OK",
+  "queriedAtUtc": "2026-11-27T15:19:07Z",
+  "symbols": {
+    "BTCUSDT": {
+      "symbol": "BTCUSDT",
+      "status": "TRADING",
+      "contractType": "PERPETUAL",
+      "underlyingType": "COIN",
+      "baseAsset": "BTC",
+      "quoteAsset": "USDT",
+      "onboardDate": 1567965300000,
+      "pricePrecision": 2,
+      "quantityPrecision": 3,
+      "tickSize": "0.10",
+      "minPrice": "556.80",
+      "maxPrice": "4529764"
+    },
+    "ETHUSDT": {
+      "symbol": "ETHUSDT",
+      "status": "TRADING",
+      "contractType": "PERPETUAL",
+      "underlyingType": "COIN",
+      "baseAsset": "ETH",
+      "quoteAsset": "USDT",
+      "onboardDate": 1574840700000,
+      "pricePrecision": 2,
+      "quantityPrecision": 3,
+      "tickSize": "0.01",
+      "minPrice": "39.86",
+      "maxPrice": "306177"
+    },
+    "XAUUSDT": {
+      "symbol": "XAUUSDT",
+      "status": "TRADING",
+      "contractType": "TRADIFI_PERPETUAL",
+      "underlyingType": "COMMODITY",
+      "baseAsset": "XAU",
+      "quoteAsset": "USDT",
+      "onboardDate": 1765440300000,
+      "pricePrecision": 2,
+      "quantityPrecision": 3,
+      "tickSize": "0.01",
+      "minPrice": "0.01",
+      "maxPrice": "200000"
+    },
+    "SPYUSDT": {
+      "symbol": "SPYUSDT",
+      "status": "TRADING",
+      "contractType": "TRADIFI_PERPETUAL",
+      "underlyingType": "EQUITY",
+      "baseAsset": "SPY",
+      "quoteAsset": "USDT",
+      "onboardDate": 1775482800000,
+      "pricePrecision": 5,
+      "quantityPrecision": 2,
+      "tickSize": "0.01000",
+      "minPrice": "0.01000",
+      "maxPrice": "20000"
+    }
+  }
+}

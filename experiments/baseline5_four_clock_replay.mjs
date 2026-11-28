@@ -6,9 +6,9 @@
  * sealed-boundary exposure bar k_emit_first for every emitted K, F, B, S, and Z structure.
  *
  * Produces the exact input directory structure expected by:
- *   - experiments/exp4_downstream_lookahead.py
- *   - experiments/exp4_v22_robustness.py
- *   - experiments/exp4_v24_per_window_standardized.py
+ *   - experiments/baseline5_downstream_lookahead.py
+ *   - experiments/baseline5_overlap_robustness.py
+ *   - experiments/baseline5_standardized_robustness.py
  *
  * Environment variables:
  *   CT_WINDOWS_DIR    : Directory containing the 5 verified 720-bar window JSON files (default: ./local_windows)

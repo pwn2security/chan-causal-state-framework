@@ -14,7 +14,7 @@ import numpy as np
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
-ADAPTER_DIR = Path(os.environ.get("CT_R7_ADAPTER_DIR", str(SCRIPT_DIR / "r7_adapter")))
+ADAPTER_DIR = Path(os.environ.get("CT_R7_ADAPTER_DIR", str(SCRIPT_DIR / "chanpy_matcher")))
 CHANPY_ROOT = Path(os.environ.get("CT_CHANPY_ROOT", "./chan.py-main"))
 WINDOWS_DIR = Path(os.environ.get("CT_WINDOWS_DIR", "./local_windows"))
 MANIFEST_PATH = Path(os.environ.get("CT_MANIFEST_PATH", str(REPO_ROOT / "data" / "window_manifest.json")))
@@ -32,7 +32,7 @@ from Common.CEnum import AUTYPE, KL_TYPE, DATA_FIELD  # noqa: E402
 from Common.CTime import CTime  # noqa: E402
 from KLine.KLine_Unit import CKLine_Unit  # noqa: E402
 
-MAPPING_PATH = ADAPTER_DIR / "r7_semantic_mapping.json"
+MAPPING_PATH = ADAPTER_DIR / "semantic_mapping.json"
 if not MAPPING_PATH.exists():
     MAPPING_PATH = ADAPTER_DIR / "R7_SEMANTIC_MAPPING.json"
 BASE_CHANPY_CFG = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))["externalBaseline"]["proposedConfiguration"]
@@ -133,7 +133,7 @@ def aggregate_scenario(name: str, windows: list[dict], internal_by_win: dict, ex
 def main():
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     windows = [{"datasetId": w["windowId"], "instrument": w["instrument"]} for w in manifest["windows"]]
-    varb = json.loads((OUT_DIR / "exp3_v22_varB_projections.json").read_text(encoding="utf-8"))
+    varb = json.loads((OUT_DIR / "chanpy_variantB_projections.json").read_text(encoding="utf-8"))
     bars_by_win = {
         w["datasetId"]: json.loads((WINDOWS_DIR / f"{w['datasetId']}.json").read_text(encoding="utf-8"))["bars"]
         for w in windows
@@ -159,7 +159,7 @@ def main():
         for l in "KFBS":
             s = res["layers"][l]
             print(f"  {l}: nI={s['internalCount']:4d}, nE={s['externalCount']:4d}, M={s['uniqueMatchedCount']:4d}, exact={s['exactMatchCount']:4d}, micro={s['microUniqueCoverage']*100:6.2f}%, exactCov={s['microExactCoverage']*100:6.2f}%, macroMed={s['macroWindowMedian']*100:6.2f}%")
-    out_path = OUT_DIR / "exp3_v22_cf4.json"
+    out_path = OUT_DIR / "chanpy_joint_counterfactual.json"
     out_path.write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     print(f"Saved: {out_path}")
 

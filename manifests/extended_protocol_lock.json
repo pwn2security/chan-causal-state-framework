@@ -1,0 +1,104 @@
+{
+  "protocolId": "CT-R8-ExtendedHorizon-CrossFreq-Null-v1.0.0",
+  "lockedAtUtc": "2026-11-27T15:21:33Z",
+  "frozenParserVersion": "CT-Core-Parser-R1.0.4",
+  "ruleVariant": "Variant A (Snapshot v5)",
+  "sandboxEquivalenceMode": "audit_hooks_off (must pass 8-trajectory 100% SHA-256 spotcheck vs full_audit)",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "XAUUSDT",
+    "SPYUSDT"
+  ],
+  "tickSizesOfficialExchangeInfo": {
+    "BTCUSDT": 0.1,
+    "ETHUSDT": 0.01,
+    "XAUUSDT": 0.01,
+    "SPYUSDT": 0.01
+  },
+  "arm1": {
+    "description": "24 extended-horizon weekday 48h 1m windows (4 symbols x 6 separate months, Tue 00:00 UTC -> Thu 00:00 UTC)",
+    "dateSetChoice": "PREFERRED_6_MONTH_SET_2026_05_TO_2026_10",
+    "dates": [
+      {
+        "month": "2026-05",
+        "startDateUtc": "2026-05-19"
+      },
+      {
+        "month": "2026-06",
+        "startDateUtc": "2026-06-16"
+      },
+      {
+        "month": "2026-07",
+        "startDateUtc": "2026-07-21"
+      },
+      {
+        "month": "2026-08",
+        "startDateUtc": "2026-08-18"
+      },
+      {
+        "month": "2026-09",
+        "startDateUtc": "2026-09-15"
+      },
+      {
+        "month": "2026-10",
+        "startDateUtc": "2026-10-20"
+      }
+    ],
+    "barsPerWindow": 2880,
+    "nullPathsPerWindowPerModel": 25
+  },
+  "arm2": {
+    "description": "4 cross-frequency contiguous 30-day 15m windows (2026-07-01 00:00 UTC -> 2026-07-31 00:00 UTC)",
+    "month": "2026-07",
+    "startDateUtc": "2026-07-01",
+    "barsPerWindow": 2880,
+    "nullPathsPerWindowPerModel": 25
+  },
+  "arm3": {
+    "description": "Standard Chan new-Stroke (m_B = 4) robustness branch on Arm 1 24 windows",
+    "mB": 4,
+    "nullPathsPerWindowPerModel": 10,
+    "nullModels": [
+      "shuffled_L1",
+      "cbb_L30",
+      "tq_gbm",
+      "tq_garch"
+    ]
+  },
+  "contiguousScaling": {
+    "symbol": "BTCUSDT",
+    "month": "2026-07",
+    "startDateUtc": "2026-07-01",
+    "bars": 10000,
+    "checkpoints": [
+      120,
+      500,
+      1000,
+      2000,
+      2880,
+      5000,
+      10000
+    ]
+  },
+  "seeds": {
+    "BASE_SEED": 20261201,
+    "offsets": {
+      "shuffled_L1": 10007,
+      "cbb_L30": 20011,
+      "cbb_L15": 20023,
+      "cbb_L60": 20047,
+      "sbb_L30": 20063,
+      "cont_gbm": 30013,
+      "tq_gbm": 40009,
+      "tq_garch": 50021
+    }
+  },
+  "hypotheses": {
+    "H1": "Operator invariance of B/K (~17-18% at m_B=2; ~7.8% at m_B=4) across 1m & 15m real vs all null models",
+    "H2": "Date-clustered K/N compression: Real < TQ-GBM across 6/6 independent dates (exact Wilcoxon p_date = 0.03125 < 0.05)",
+    "H3": "Volatility-clustering relief of bar inclusion: CBB(L=30) K/N > Shuffled(L=1) K/N (p_date < 0.05)",
+    "H4": "Conditional heteroskedasticity driver: TQ-GARCH lowers K/N and stretches Segment lags relative to TQ-GBM",
+    "H5": "Cross-frequency persistence at 15m (low flat-bar regime) and zero-mean noise convergence at causal t_emit"
+  }
+}

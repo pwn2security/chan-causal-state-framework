@@ -1,0 +1,31 @@
+{
+  "generatedAtUtc": "2026-11-27T15:28:05.604Z",
+  "patchDescription": "Two-line isolated VM patch in segment.js: serialize lifecycleEvents and restore this.#lifecycleEvents in restoreSequentialContinuation.",
+  "frozenV104Result": {
+    "stalePendingMatch": true,
+    "checkpointLifecycleEventsCont": 1,
+    "checkpointLifecycleEventsRest": 0,
+    "checkpointLifecycleExactMatch": false,
+    "reentryNewPendingDistinct": true,
+    "reentryPendingIdMatch": true,
+    "futureStepsToConfirm": 5,
+    "confirmedCase2Cont": true,
+    "confirmedCase2Rest": true,
+    "confirmedSegmentExactMatch": true,
+    "postConfirmLifecycleMatch": false
+  },
+  "patchedResult": {
+    "stalePendingMatch": true,
+    "checkpointLifecycleEventsCont": 1,
+    "checkpointLifecycleEventsRest": 1,
+    "checkpointLifecycleExactMatch": true,
+    "reentryNewPendingDistinct": true,
+    "reentryPendingIdMatch": true,
+    "futureStepsToConfirm": 5,
+    "confirmedCase2Cont": true,
+    "confirmedCase2Rest": true,
+    "confirmedSegmentExactMatch": true,
+    "postConfirmLifecycleMatch": true
+  },
+  "status": "PASS"
+}

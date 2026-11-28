@@ -61,7 +61,7 @@ R7_ROOT = Path(os.environ.get("CT_R7_ROOT", "./external_r7"))
 R7_DATA = R7_ROOT / "formal-run" / "R7-FORMAL-14-20261009T095213Z" / "figures" / "source-data" / "R7-C.json"
 FOUR_CLOCK = Path(os.environ.get("CT_FOUR_CLOCK_DIR", "./four_clock_replay")) / "sz_four_clock_table.json"
 FIG1_SRC = Path(os.environ.get("CT_FIG1_SRC", "./figures/Figure1.pdf"))
-EXP2_ABLATION = Path(os.environ.get("CT_RESULTS_DIR", str(MANUSCRIPT_DIR / "experiments" / "results"))) / "exp2_hashing_ablation.json"
+EXP2_ABLATION = Path(os.environ.get("CT_RESULTS_DIR", str(MANUSCRIPT_DIR / "experiments" / "results"))) / "scaling_audit_ablation.json"
 
 INPUTS = {
     "fig2": E4 / "full-BTCUSDT-2025-01-02-1s-derived-720.json",
@@ -70,9 +70,9 @@ INPUTS = {
     "four_clock": FOUR_CLOCK,
     "r4_protocol": R4 / "R4_EXPERIMENT_PROTOCOL.json",
     "fig6_delay": H_REF / "STEP03L-FIGURE7-v1.4/verified-data/figure7-data.json",
-    "fig7_scaling_result": RV / "formal-results-r2/json/E5-X-R2-20260922T005351Z-result.json",
+    "fig7_scaling_result": RV / "formal-results-r2/json/baseline_repeated_scaling_full_audit.json",
     "fig7_scaling_protocol": RV / "config/reviewer_critical_experiments_protocol.json",
-    "fig8_heatmap": H_REF / "STEP03N-FIGURE9-v1.0/verified-data/figure9-data.json",
+    "fig8_heatmap": H_REF / "STEP03N-FIGURE9-v1.0/verified-data/chanpy_correspondence_summary.json",
     "fig9_r7c": R7_DATA,
 }
 
@@ -298,7 +298,7 @@ def build_figure2() -> dict:
     zoom_box = Rectangle((-2, 94340), 278, 1320, fill=False,
                          edgecolor="#52606D", linewidth=0.85, linestyle=(0, (4, 2.5)), zorder=7)
     ax.add_patch(zoom_box)
-    ax.text(274, 95700, "Enlarged in Fig. 4 (bars 0–276)", ha="right", va="bottom",
+    ax.text(274, 95700, "Enlarged in Fig. 3 (bars 0–276)", ha="right", va="bottom",
             fontsize=7.8, color="#52606D", style="italic", zorder=8)
 
     ax.set_xlim(-8, 728)

@@ -1,0 +1,9 @@
+{
+  "generatedAtUtc": "2026-11-27T16:57:31.457Z",
+  "totalWindows": 56,
+  "exactMatches": 56,
+  "totalWallSec": 102.14,
+  "avgPerPathSec": 12.14,
+  "mismatches": [],
+  "status": "PASS"
+}

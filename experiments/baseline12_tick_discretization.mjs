@@ -231,7 +231,7 @@ if (!isMainThread) {
     realRecords: outByIdx.map(x => x.realRow),
     tickQuantizedGbmRecords: outByIdx.flatMap(x => x.tqRows),
   };
-  const outPath = path.join(OUT_DIR, 'exp1_v22_discretization.json');
+  const outPath = path.join(OUT_DIR, 'baseline12_tick_discretization.json');
   fs.writeFileSync(outPath, JSON.stringify(payload, null, 2) + '\n', 'utf8');
   console.log(`\nSaved ${outPath} in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 }

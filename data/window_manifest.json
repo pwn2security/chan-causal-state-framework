@@ -1,4 +1,4 @@
-{
+﻿{
   "schemaVersion": "CT-Public-Window-Manifest-v1.0",
   "redistributionPolicy": "Raw exchange OHLC bars are omitted due to exchange redistribution terms. Fetch official Binance Vision archives for the listed UTC intervals and verify SHA-256 digests with verify_hashes.py.",
   "windowCount": 14,
@@ -7,7 +7,7 @@
       "ordinal": 0,
       "windowId": "BTCUSDT-2025-01-01-tick-derived-571",
       "instrument": "BTCUSDT",
-      "venue": "Binance BTCUSDT Spot/Trades archive",
+      "venue": "Binance BTCUSDT Binance USD-M Futures daily trades archive",
       "interval": "1m",
       "barCount": 571,
       "firstBarStartUtc": "2025-01-01T00:00:00+00:00",
@@ -18,7 +18,7 @@
       "ordinal": 1,
       "windowId": "BTCUSDT-2025-01-02-1s-derived-720",
       "instrument": "BTCUSDT",
-      "venue": "Binance BTCUSDT Spot/Trades archive",
+      "venue": "Binance BTCUSDT Binance USD-M Futures daily trades archive",
       "interval": "1m",
       "barCount": 720,
       "firstBarStartUtc": "2025-01-02T00:00:00+00:00",
@@ -159,3 +159,4 @@
     }
   ]
 }
+

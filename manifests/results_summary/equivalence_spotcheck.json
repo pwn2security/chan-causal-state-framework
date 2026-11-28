@@ -1,0 +1,161 @@
+{
+  "protocolId": "CT-R8-ExtendedHorizon-CrossFreq-Null-v1.0.0",
+  "generatedAtUtc": "2026-11-27T15:30:49.355Z",
+  "totalTrajectories": 8,
+  "exactMatches": 8,
+  "status": "PASS",
+  "trajectories": [
+    {
+      "windowId": "R8-ARM1-ETHUSDT-2026-06-16-48H-1M",
+      "symbol": "ETHUSDT",
+      "kind": "cbb_L30",
+      "prefixLen": 720,
+      "fullSec": 37.1819621,
+      "fastSec": 4.095676100000004,
+      "speedup": 9.078345355483545,
+      "counts": {
+        "K": 520,
+        "F": 240,
+        "B": 96,
+        "S": 5,
+        "Z": 1
+      },
+      "fullSha256": "980f7015adaff7e715074835a6f49c8f815fb993b3748888f0a346fd797a24cc",
+      "fastSha256": "980f7015adaff7e715074835a6f49c8f815fb993b3748888f0a346fd797a24cc",
+      "exactMatch": true
+    },
+    {
+      "windowId": "R8-ARM1-BTCUSDT-2026-06-16-48H-1M",
+      "symbol": "BTCUSDT",
+      "kind": "real",
+      "prefixLen": 720,
+      "fullSec": 55.118252999999996,
+      "fastSec": 4.883241499999996,
+      "speedup": 11.287226527707066,
+      "counts": {
+        "K": 500,
+        "F": 221,
+        "B": 85,
+        "S": 3,
+        "Z": 1
+      },
+      "fullSha256": "abef4e1a6d4390f91863cdfd968e0eb0af7420eda209046aebd5df962bafa67f",
+      "fastSha256": "abef4e1a6d4390f91863cdfd968e0eb0af7420eda209046aebd5df962bafa67f",
+      "exactMatch": true
+    },
+    {
+      "windowId": "R8-ARM1-ETHUSDT-2026-06-16-48H-1M",
+      "symbol": "ETHUSDT",
+      "kind": "real",
+      "prefixLen": 720,
+      "fullSec": 70.78254909999998,
+      "fastSec": 4.243346799999999,
+      "speedup": 16.680830588723033,
+      "counts": {
+        "K": 500,
+        "F": 231,
+        "B": 103,
+        "S": 1,
+        "Z": 0
+      },
+      "fullSha256": "ab3443f2e150848c02aa0bb60579635cf37c7b67aedfc6119f9db0e3350ee115",
+      "fastSha256": "ab3443f2e150848c02aa0bb60579635cf37c7b67aedfc6119f9db0e3350ee115",
+      "exactMatch": true
+    },
+    {
+      "windowId": "R8-ARM1-BTCUSDT-2026-06-16-48H-1M",
+      "symbol": "BTCUSDT",
+      "kind": "cbb_L30",
+      "prefixLen": 720,
+      "fullSec": 93.1281844,
+      "fastSec": 4.685329799999992,
+      "speedup": 19.876548370191603,
+      "counts": {
+        "K": 515,
+        "F": 247,
+        "B": 98,
+        "S": 0,
+        "Z": 0
+      },
+      "fullSha256": "eb9babec69aac422e646d00c4aa4e88e407bd36885dd93a7e413c807005ee2ba",
+      "fastSha256": "eb9babec69aac422e646d00c4aa4e88e407bd36885dd93a7e413c807005ee2ba",
+      "exactMatch": true
+    },
+    {
+      "windowId": "R8-ARM1-XAUUSDT-2026-06-16-48H-1M",
+      "symbol": "XAUUSDT",
+      "kind": "real",
+      "prefixLen": 720,
+      "fullSec": 77.1834502,
+      "fastSec": 5.692167399999991,
+      "speedup": 13.55958895376129,
+      "counts": {
+        "K": 509,
+        "F": 230,
+        "B": 88,
+        "S": 8,
+        "Z": 1
+      },
+      "fullSha256": "bc461b4df4e1ac2d1ffde6ceff1d2c85a8dacb801587772cb945cff149993a67",
+      "fastSha256": "bc461b4df4e1ac2d1ffde6ceff1d2c85a8dacb801587772cb945cff149993a67",
+      "exactMatch": true
+    },
+    {
+      "windowId": "R8-ARM1-SPYUSDT-2026-06-16-48H-1M",
+      "symbol": "SPYUSDT",
+      "kind": "real",
+      "prefixLen": 720,
+      "fullSec": 74.75178269999999,
+      "fastSec": 4.201237800000003,
+      "speedup": 17.79279970774326,
+      "counts": {
+        "K": 389,
+        "F": 179,
+        "B": 78,
+        "S": 1,
+        "Z": 0
+      },
+      "fullSha256": "8f4b9121472492d326792b75ec41cbc7f6fac8de50bdc95b29278ff372dce24b",
+      "fastSha256": "8f4b9121472492d326792b75ec41cbc7f6fac8de50bdc95b29278ff372dce24b",
+      "exactMatch": true
+    },
+    {
+      "windowId": "R8-ARM1-SPYUSDT-2026-06-16-48H-1M",
+      "symbol": "SPYUSDT",
+      "kind": "cbb_L30",
+      "prefixLen": 720,
+      "fullSec": 55.51999900000001,
+      "fastSec": 4.0224990000000105,
+      "speedup": 13.802364898039718,
+      "counts": {
+        "K": 443,
+        "F": 180,
+        "B": 84,
+        "S": 6,
+        "Z": 1
+      },
+      "fullSha256": "a0f0c247593718805c5aaeccee608a29d051bd80d9193e387f82cd988002296d",
+      "fastSha256": "a0f0c247593718805c5aaeccee608a29d051bd80d9193e387f82cd988002296d",
+      "exactMatch": true
+    },
+    {
+      "windowId": "R8-ARM1-XAUUSDT-2026-06-16-48H-1M",
+      "symbol": "XAUUSDT",
+      "kind": "cbb_L30",
+      "prefixLen": 720,
+      "fullSec": 99.60634390000001,
+      "fastSec": 3.7247332999999925,
+      "speedup": 26.74187274025773,
+      "counts": {
+        "K": 471,
+        "F": 237,
+        "B": 79,
+        "S": 0,
+        "Z": 0
+      },
+      "fullSha256": "b4c1395f42d8fb5bfa7e690cc2eb4432dd84fa2aa1d8f270fb1092ad4acc4df2",
+      "fastSha256": "b4c1395f42d8fb5bfa7e690cc2eb4432dd84fa2aa1d8f270fb1092ad4acc4df2",
+      "exactMatch": true
+    }
+  ]
+}

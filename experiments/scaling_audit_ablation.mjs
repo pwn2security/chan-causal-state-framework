@@ -211,7 +211,7 @@ async function main() {
     scalingGrid: scalingResults,
     empiricalScalingExponents: exponents,
   };
-  const outPath = path.join(OUT_DIR, 'exp2_hashing_ablation.json');
+  const outPath = path.join(OUT_DIR, 'scaling_audit_ablation.json');
   fs.writeFileSync(outPath, JSON.stringify(out, null, 2) + '\n', 'utf8');
   console.log(`\nSaved: ${outPath}`);
 }
